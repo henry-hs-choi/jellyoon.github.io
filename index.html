@@ -146,7 +146,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    24분 read (About 3565 words)
+                    25분 read (About 3735 words)
                 </span>
                 
                 
@@ -574,7 +574,7 @@
 </blockquote>
 <h4 id="Java와-jsp간-데이터-교환-방법"><a href="#Java와-jsp간-데이터-교환-방법" class="headerlink" title="Java와 jsp간 데이터 교환 방법"></a><code>Java와 jsp간 데이터 교환 방법</code></h4><blockquote>
 <p>컨테이너 내부에 객체를 공유할 수 있는 공간이 있음</p>
-<p><strong>컨테이너 내부의 4가지 영역</strong></p>
+<p><strong>컨테이너 내부의 4가지 Scope 영역</strong></p>
 <ul>
 <li><strong>Application Context</strong> : 컨테이너 내부에서 동작하는 객체를 유지 (server가 shutdown 되기 전까지 - ex. 로그인 중인 사용자의 정보), 가장 넓은 Scope를 가진다.</li>
 <li><strong><code>Session Context</code></strong> : Last Access Time으로부터 일정 기간동안 유지된다.</li>
@@ -634,7 +634,34 @@
 </ul>
 </li>
 </ul>
-<p>그러나 위의 태그들을 사용하여 java 코드를 넣을 경우 뷰를 처리하는 JSP 코드가 너무 복잡해지는(이질감이 드는) 문제점이 발생하였다.<br>-&gt; JSTL, EL</p>
+<p>그러나 위의 태그들을 사용하여 java 코드를 넣을 경우 뷰를 처리하는 JSP 코드가 너무 복잡해지는(이질감이 드는) 문제점이 발생<br>-&gt; <strong>JSTL</strong>, <strong>EL</strong></p>
+</blockquote>
+<h4 id="JSTL-EL"><a href="#JSTL-EL" class="headerlink" title="JSTL + EL"></a><code>JSTL</code> + <code>EL</code></h4><ul>
+<li><strong>EL (Expression Language)</strong> : 내장객체와 속성 값을 가져오기 매우 편함</li>
+</ul>
+<blockquote>
+<ul>
+<li>직접적으로 속성 값을 가져오는 것이 아니고 getter를 사용하여 가져온다.  </li>
+<li>내부에 연산자를 사용할 수 있다.</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>JSTL (JSP Standard Tag Library)</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li><em>jstl/core</em> : 논리적 처리, 변수 지원, 흐름 제어 등의 태그들</li>
+<li><em>jstl/functions</em> : EL에서 사용 가능한 함수 태그들</li>
+</ul>
+</blockquote>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$&#123; param.name &#125;</span><br><span class="line">&lt;c:<span class="hljs-keyword">if</span> test = <span class="hljs-string">"$&#123; testSession ne null &#125;"</span>&gt;</span><br><span class="line">    $&#123; testSession[<span class="hljs-string">"id"</span>] &#125;</span><br><span class="line">    &lt;c:out value=<span class="hljs-string">"&lt;h2&gt;$&#123; testSession.id &#125;&lt;/h2&gt;"</span> escapeXml=<span class="hljs-string">"true"</span> /&gt;</span><br><span class="line">&lt;/c:if&gt;</span><br><span class="line"></span><br><span class="line">&lt;c:<span class="hljs-keyword">if</span> test=<span class="hljs-string">"$&#123;f:length(list) &gt; 0&#125;"</span>&gt;</span><br><span class="line">    &lt;c:forEach <span class="hljs-keyword">var</span>=<span class="hljs-string">"obj"</span> items=<span class="hljs-string">"$&#123;list&#125;"</span>&gt;</span><br><span class="line">        $&#123;obj.id&#125; &lt;br/&gt;</span><br><span class="line">    &lt;/c:forEach&gt;</span><br><span class="line">&lt;/c:if&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="세션과-쿠키"><a href="#세션과-쿠키" class="headerlink" title="세션과 쿠키"></a><code>세션과 쿠키</code></h4><ul>
+<li><strong>세션 (Session)</strong> : 서버에 저장, 객체도 저장 가능</li>
+<li><strong>쿠키 (Cookie)</strong> : 클라이언트에 저장, 문자열만 저장 가능</li>
+</ul>
+<blockquote>
+<p>세션은 공통 업무와 보안 문제를 고려할 때 사용</p>
 </blockquote>
 <h5 id="배열-2차원-조건처리-스트림"><a href="#배열-2차원-조건처리-스트림" class="headerlink" title="배열(2차원), 조건처리, 스트림"></a>배열(2차원), 조건처리, 스트림</h5>
         </div>
