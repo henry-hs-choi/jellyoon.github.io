@@ -2,7 +2,7 @@
 <html lang="ko">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>HS CHOI</title>
+<title>카테고리 - HS CHOI</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -10,7 +10,7 @@
     <meta name="description" content="Develop">
 <meta property="og:type" content="website">
 <meta property="og:title" content="HS CHOI">
-<meta property="og:url" content="http://einhugo.github.io/index.html">
+<meta property="og:url" content="http://einhugo.github.io/categories/index.html">
 <meta property="og:site_name" content="HS CHOI">
 <meta property="og:description" content="Develop">
 <meta property="og:locale" content="ko">
@@ -96,11 +96,11 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item is-active" href="/">Home</a>
+                <a class="navbar-item" href="/">Home</a>
                 
                 <a class="navbar-item" href="/archives">Archives</a>
                 
-                <a class="navbar-item" href="/categories">Categories</a>
+                <a class="navbar-item is-active" href="/categories">Categories</a>
                 
                 <a class="navbar-item" href="/tags">Tags</a>
                 
@@ -134,124 +134,18 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-10T01:41:46.000Z">2019-07-10</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3분 read (About 427 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
             
-                <a class="has-link-black-ter" href="/2019/07/10/Sort-Algorithm-Exchange-Sort/">Sort Algo - Exchange Sort</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="Sorting"><a href="#Sorting" class="headerlink" title="Sorting"></a><strong>Sorting</strong></h1><h2 id="1-교환정렬-Exchange-Sort"><a href="#1-교환정렬-Exchange-Sort" class="headerlink" title="1. 교환정렬 (Exchange Sort)"></a>1. 교환정렬 (Exchange Sort)</h2><h3 id="Algorithm-O-n-2"><a href="#Algorithm-O-n-2" class="headerlink" title="Algorithm : O(n^2)"></a>Algorithm : <em>O(n^2)</em></h3><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exchangeSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, keytype S[])</span></span>&#123;</span><br><span class="line">    index i, j;</span><br><span class="line">    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">for</span> (j = i+<span class="hljs-number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (S[j] &lt; S[i])&#123;</span><br><span class="line">                exchange S[i] and S[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>우선 첫 인덱스에 비교 지점<em>(i)_을 고정해 놓고 끝까지 탐색</em>(j++)_해가며 계속 <strong>교환</strong>한다.</p>
-</li>
-<li><p>루프_(for-i)_가 한 번 수행될 때마다 앞 인덱스부터 최소 값이 오게된다.</p>
-</li>
-</ul>
-<ul>
-<li><p>레벨-2 의 “b &lt; a” 노드는 우측 자식을 갖지 않도록 해야 한다. 앞서 루트에서 이미 해당 연산의 결과를 보였기 때문에, 우측 자식이 있는 경우는 모순인 것이다. 이처럼 가지치기를 해주어야 한다.</p>
-</li>
-<li><p>우리는 이 점에서 “b &lt; a” 연산이 두 번 시행되었다는 사실을 알 수 있다. SubOptimal한 알고리즘의 경우에는 “b &lt; a”가 참이라는 사실을 알 지 못하므로 이와같은 불필요한 연산이 추가로 수행된다.</p>
-</li>
-</ul>
-<h3 id="Every-case-Time-Complexity"><a href="#Every-case-Time-Complexity" class="headerlink" title="Every-case Time Complexity"></a>Every-case Time Complexity</h3><ul>
-<li><p>값을 비교함으로써 정렬을 수행하는 알고리즘이므로, <em>두 숫자 사이의 값 비교</em> 연산이 <strong>Basic Operation</strong>이 된다.</p>
-</li>
-<li><p>정렬할 항목의 수가 <strong>n</strong>이 된다</p>
-</li>
-<li><p>첫 번째 <code>(for-i)</code> 루프에서는 n-1번<em>(2..n)</em> 의 <code>(for-j)</code> 루프를 수행하고, 두 번째 <code>(for-i)</code> 루프에서는 n-2번_(3..n)_의 <code>(for-j)</code> 루프를 수행한다. 이 처럼 <code>for-j</code> 루프의 수행 횟수는 1씩 줄어든다. 이를 모두 더한 것이 시간복잡도가 된다.</p>
-</li>
-<li><p>교환 정렬은 항상 위의 모든 연산을 수행하므로, Every-Case Time Complexity는 (n-1)n / 2이다. 즉, O(n^2)이라고 할 수 있다.</p>
-</li>
-</ul>
-
+            </ul>
         </div>
-        
-        
-        
     </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-10T01:36:46.000Z">2019-07-10</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    1분 read (About 121 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/07/10/hello-world/">Hello World</a>
-            
-        </h1>
-        <div class="content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-</div>
+</div></div>
                 
 
 
