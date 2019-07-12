@@ -15,7 +15,7 @@
 <meta property="og:description" content="LECTURE NOTE - from java to spring특징 Write Once, Run Anywhere     이식성이 상당히 좋다.   *.java -&amp;gt; *.class -&amp;gt; interpreter -&amp;gt; output 자바는 쓰레드 기반이다.  현장 투입시 하는 것  빌드 자동화 툴(Maven) 선정 통합개발환경 설치 형상관리 툴(git">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://lh4.googleusercontent.com/oR0_liUxjMnfgFS-fSuc0x2vCCPLQ0Vdw6w2rBVGloaE_84tRNprqNJEJiyI1unMY8Vpj2CDK9GiQGy03_RmteRz-aM31iIQcZsVZhIH2cLrne_5nY9miXKDmQqEHdY60_WopC0">
-<meta property="og:updated_time" content="2019-07-12T00:12:18.773Z">
+<meta property="og:updated_time" content="2019-07-12T08:19:05.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lecture Note">
 <meta name="twitter:description" content="LECTURE NOTE - from java to spring특징 Write Once, Run Anywhere     이식성이 상당히 좋다.   *.java -&amp;gt; *.class -&amp;gt; interpreter -&amp;gt; output 자바는 쓰레드 기반이다.  현장 투입시 하는 것  빌드 자동화 툴(Maven) 선정 통합개발환경 설치 형상관리 툴(git">
@@ -148,7 +148,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    27분 read (About 3999 words)
+                    28분 read (About 4261 words)
                 </span>
                 
                 
@@ -683,7 +683,7 @@
 </blockquote>
 <h4 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a><code>JQuery</code></h4><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="hljs-string">"#btn"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">        <span class="hljs-comment">/* console.log(obj);</span></span><br><span class="line"><span class="hljs-comment">        console.log(ary);</span></span><br><span class="line"><span class="hljs-comment">        $("#result").text(obj.id + " " + obj.pwd); */</span></span><br><span class="line">        $.each(ary, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idx, data</span>) </span>&#123;</span><br><span class="line">            $(<span class="hljs-string">"#result"</span>).append(<span class="hljs-string">"&lt;H1&gt;"</span> + obj.id + <span class="hljs-string">" "</span> + obj.pwd+ <span class="hljs-string">"&lt;/H1&gt;"</span>);</span><br><span class="line">            <span class="hljs-comment">// $("#result").html("&lt;H1&gt;" + obj.id + " " + obj.pwd+ "&lt;/H1&gt;");</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<h4 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a><code>AJAX</code></h4><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-string">"#ajaxBtn"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url         : <span class="hljs-string">"./ajaxCtrl"</span>,</span><br><span class="line">        type        : <span class="hljs-string">"post"</span>,</span><br><span class="line">        data        : &#123; <span class="hljs-attr">maker</span> : $(<span class="hljs-string">"#maker"</span>).val()&#125;,</span><br><span class="line">        dataType    : <span class="hljs-string">"json"</span>,</span><br><span class="line">        success     : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>)</span>&#123;</span><br><span class="line">            alert(obj);	</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a><code>AJAX</code></h4><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-string">"#ajaxBtn"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url         : <span class="hljs-string">"./ajaxCtrl"</span>,</span><br><span class="line">        type        : <span class="hljs-string">"post"</span>,</span><br><span class="line">        data        : &#123; <span class="hljs-attr">maker</span> : $(<span class="hljs-string">"#maker"</span>).val()&#125;,</span><br><span class="line">        dataType    : <span class="hljs-string">"json"</span>,</span><br><span class="line">        success     : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>)</span>&#123;</span><br><span class="line">            alert(obj);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h4 id="주석"><a href="#주석" class="headerlink" title="주석"></a><code>주석</code></h4><ul>
 <li>HTML : &lt;!–</li>
@@ -692,17 +692,89 @@
 </ul>
 </li>
 </ul>
+<h4 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a><code>Maven</code></h4><ul>
+<li><a href="https://mvnrepository.com/" target="_blank" rel="noopener">https://mvnrepository.com/</a></li>
+</ul>
 <h4 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a><code>Spring</code></h4><ul>
 <li><strong>Inversion Of Control</strong> (제어의 역행)<ul>
 <li>Dependency Injection</li>
 <li>Dependency Lookup</li>
 </ul>
 </li>
+</ul>
+<blockquote>
+<p><strong>Container를 Setting하는 방법</strong></p>
+<ol>
+<li>XML (Schema)</li>
+<li>Annotation</li>
+</ol>
+<ul>
+<li><p>위의 방법들을 이용해서 Ctrl &lt;- Service &lt;- DAO를 Dependency Injection함</p>
+<ol>
+<li>Presentation Layer(Ctrl)의 XML 1개<br><em>servlet-context.xml</em> : resources, views</li>
+<li>Business Layer(Service, DAO)의 XML 1개<br><em>root-context.xml</em> : DB Property 설정, Service/DAO 객체 등록  </li>
+</ol>
+<p>-&gt; 총 2개의 Spring 설정 XML 파일이 생성된다.  </p>
+<ul>
+<li><em>Web.xml</em> : 프로젝트에 대한 환경 설정. context 파일과 Servlet(Front Controller) 등록.  </li>
+</ul>
+<p>-&gt; Factory의 역할을 함</p>
+</li>
+<li><p>Annotation을 사용해 서블릿 등록 가능  </p>
+</li>
+</ul>
+<p>-&gt; 최종적으로 Zero Configuration 지향 가능</p>
+<p><strong>의존성 주입 방법</strong></p>
+<ul>
+<li>@Resource : Java 표준. name으로 식별이 가능함</li>
+<li>@Autowired : Spring. Ambiguity 문제 발생 가능성 (Type Check -&gt; Variable Name Check)</li>
+<li>@Inject</li>
+<li>@Qualified</li>
+</ul>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="hljs-tag">&lt;<span class="hljs-name">bean</span>&gt;</span></span><br><span class="line">&gt;       <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span></span><br><span class="line">&gt;       <span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span>&gt;</span></span><br><span class="line">&gt;   <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>-&gt; Setter Injection (Property Injection)</p>
+<p>LookUp(main Class의 흐름) 역시 Spring이 해준다.</p>
+</blockquote>
+<ul>
 <li><strong>AOP</strong></li>
 <li><strong>SpringMVC</strong></li>
 </ul>
 <blockquote>
-<p>배열(2차원), 조건처리, 스트림<br>자바, SQL, 웹, 스프링</p>
+<p>Client -&gt; <strong>Dispatcher Servlet</strong><br>-&gt; Handler Mapping<br>&lt;-&gt; Controller</p>
+<ul>
+<li>컨트롤러 메서드의 리턴타입은 3개<ul>
+<li>ModelAndView</li>
+<li>String</li>
+<li>Void<ul>
+<li>Request 되는 URI과 같은 JSP를 찾음. (경로 주의)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>-&gt; ViewResolver<br>-&gt; View</p>
+</blockquote>
+<ul>
+<li>기본 페이지 분기는 Forward</li>
+<li>Ctrl의 Parameter는 지정하기 나름</li>
+<li>Model 객체가 Request Scope을 가짐</li>
+</ul>
+<blockquote>
+<p>객체생성에 관련한 Annotation</p>
+<ul>
+<li>@Component</li>
+</ul>
+<ol>
+<li>@Controller</li>
+<li>@Service</li>
+<li>@Repository</li>
+</ol>
+</blockquote>
+<h5 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h5><blockquote>
+<p>배열(2차원), 조건처리, 스트림</p>
+<p>자바, SQL, 웹, 스프링</p>
 </blockquote>
 
         </div>
