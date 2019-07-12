@@ -15,7 +15,7 @@
 <meta property="og:description" content="LECTURE NOTE - from java to spring특징 Write Once, Run Anywhere     이식성이 상당히 좋다.   *.java -&amp;gt; *.class -&amp;gt; interpreter -&amp;gt; output 자바는 쓰레드 기반이다.  현장 투입시 하는 것  빌드 자동화 툴(Maven) 선정 통합개발환경 설치 형상관리 툴(git">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://lh4.googleusercontent.com/oR0_liUxjMnfgFS-fSuc0x2vCCPLQ0Vdw6w2rBVGloaE_84tRNprqNJEJiyI1unMY8Vpj2CDK9GiQGy03_RmteRz-aM31iIQcZsVZhIH2cLrne_5nY9miXKDmQqEHdY60_WopC0">
-<meta property="og:updated_time" content="2019-07-10T08:11:23.899Z">
+<meta property="og:updated_time" content="2019-07-12T00:12:18.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lecture Note">
 <meta name="twitter:description" content="LECTURE NOTE - from java to spring특징 Write Once, Run Anywhere     이식성이 상당히 좋다.   *.java -&amp;gt; *.class -&amp;gt; interpreter -&amp;gt; output 자바는 쓰레드 기반이다.  현장 투입시 하는 것  빌드 자동화 툴(Maven) 선정 통합개발환경 설치 형상관리 툴(git">
@@ -148,7 +148,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    25분 read (About 3735 words)
+                    27분 read (About 3999 words)
                 </span>
                 
                 
@@ -447,7 +447,7 @@
 <li>쓰레드는 <strong>동시성</strong>과 <strong>제어</strong>가 중요한 관점</li>
 </ul>
 </blockquote>
-<p><img src="https://lh4.googleusercontent.com/oR0_liUxjMnfgFS-fSuc0x2vCCPLQ0Vdw6w2rBVGloaE_84tRNprqNJEJiyI1unMY8Vpj2CDK9GiQGy03_RmteRz-aM31iIQcZsVZhIH2cLrne_5nY9miXKDmQqEHdY60_WopC0" alt="Thread Life Cycle"></p>
+<p><img src="https://lh4.googleusercontent.com/oR0_liUxjMnfgFS-fSuc0x2vCCPLQ0Vdw6w2rBVGloaE_84tRNprqNJEJiyI1unMY8Vpj2CDK9GiQGy03_RmteRz-aM31iIQcZsVZhIH2cLrne_5nY9miXKDmQqEHdY60_WopC0" alt="Thread Life Cycle"><br>[출처 : <a href="https://www.javamadesoeasy.com/2015/03/thread-states-thread-life-cycle-in-java.html" target="_blank" rel="noopener">https://www.javamadesoeasy.com/2015/03/thread-states-thread-life-cycle-in-java.html</a>]</p>
 <blockquote>
 <p><strong>스케쥴링 방식</strong></p>
 <ol>
@@ -531,7 +531,7 @@
 </ul>
 </blockquote>
 <h4 id="Dynamic-Web-Project"><a href="#Dynamic-Web-Project" class="headerlink" title="Dynamic Web Project"></a><code>Dynamic Web Project</code></h4><blockquote>
-<p><em>http: //server_ip/contextName/servletName or xxxxx.jsp</em><br>_http: //server_ip/contextName/xxxxx?key=value&amp;key=value<br>URL or URI ? queryString</p>
+<p><em>http: //server_ip/contextName/servletName or xxxxx.jsp</em><br><em>http: //server_ip/contextName/xxxxx?key=value&amp;key=value<br>URL or URI ? queryString</em></p>
 <ul>
 <li>lib : 라이브러리들</li>
 <li>web.xml : Deploy Descriptor</li>
@@ -665,7 +665,46 @@
 <blockquote>
 <p>세션은 공통 업무와 보안 문제를 고려할 때 사용</p>
 </blockquote>
-<h5 id="배열-2차원-조건처리-스트림"><a href="#배열-2차원-조건처리-스트림" class="headerlink" title="배열(2차원), 조건처리, 스트림"></a>배열(2차원), 조건처리, 스트림</h5>
+<h4 id="Script"><a href="#Script" class="headerlink" title="Script"></a><code>Script</code></h4><ul>
+<li>페이지가 멈춰있는 상태에서 (JSP를 문서로 봄) Document를 건드리는 기술<ul>
+<li>ex) 동적인 페이지 구성 / 입력 값에 대한 유효성 체크</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>+</strong> Script를 이용한 서버와의 통신. But, Response가 없음. 응답이 Request에 담겨있다. <strong>(페이지의 Reloading이 발생하지 않음)</strong><br>-&gt; <strong>비동기 통신방식(AJAX)</strong></p>
+<ul>
+<li>XML(복잡) -&gt; JSON</li>
+<li>JAVA의 객체를 Object로 관리하기 위해서는 형식을 맞춰주어야 한다.<ul>
+<li>서버에서 Session/Request Scope에 데이터를 JAVA type으로 심는 방식이 아니고 JSON 형식으로 변경해서 내려주어야 한다.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a><code>JQuery</code></h4><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="hljs-string">"#btn"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">        <span class="hljs-comment">/* console.log(obj);</span></span><br><span class="line"><span class="hljs-comment">        console.log(ary);</span></span><br><span class="line"><span class="hljs-comment">        $("#result").text(obj.id + " " + obj.pwd); */</span></span><br><span class="line">        $.each(ary, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idx, data</span>) </span>&#123;</span><br><span class="line">            $(<span class="hljs-string">"#result"</span>).append(<span class="hljs-string">"&lt;H1&gt;"</span> + obj.id + <span class="hljs-string">" "</span> + obj.pwd+ <span class="hljs-string">"&lt;/H1&gt;"</span>);</span><br><span class="line">            <span class="hljs-comment">// $("#result").html("&lt;H1&gt;" + obj.id + " " + obj.pwd+ "&lt;/H1&gt;");</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a><code>AJAX</code></h4><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-string">"#ajaxBtn"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url         : <span class="hljs-string">"./ajaxCtrl"</span>,</span><br><span class="line">        type        : <span class="hljs-string">"post"</span>,</span><br><span class="line">        data        : &#123; <span class="hljs-attr">maker</span> : $(<span class="hljs-string">"#maker"</span>).val()&#125;,</span><br><span class="line">        dataType    : <span class="hljs-string">"json"</span>,</span><br><span class="line">        success     : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>)</span>&#123;</span><br><span class="line">            alert(obj);	</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="주석"><a href="#주석" class="headerlink" title="주석"></a><code>주석</code></h4><ul>
+<li>HTML : &lt;!–</li>
+<li>JSP : &lt;%–<ul>
+<li>클라이언트가 볼 수 없음, 파싱 시 에러 방지</li>
+</ul>
+</li>
+</ul>
+<h4 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a><code>Spring</code></h4><ul>
+<li><strong>Inversion Of Control</strong> (제어의 역행)<ul>
+<li>Dependency Injection</li>
+<li>Dependency Lookup</li>
+</ul>
+</li>
+<li><strong>AOP</strong></li>
+<li><strong>SpringMVC</strong></li>
+</ul>
+<blockquote>
+<p>배열(2차원), 조건처리, 스트림<br>자바, SQL, 웹, 스프링</p>
+</blockquote>
+
         </div>
         
         
