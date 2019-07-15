@@ -146,7 +146,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    28분 read (About 4261 words)
+                    29분 read (About 4398 words)
                 </span>
                 
                 
@@ -378,7 +378,7 @@
 </ul>
 </blockquote>
 <h4 id="예외-Exception"><a href="#예외-Exception" class="headerlink" title="예외 (Exception)"></a><code>예외 (Exception)</code></h4><blockquote>
-<p>Object &lt;- Throwalbe &lt;- Exception</p>
+<p>Object &lt;- Throwable &lt;- Exception</p>
 <ul>
 <li>Compile</li>
 <li>Runtime</li>
@@ -739,7 +739,16 @@
 <li><strong>AOP</strong></li>
 <li><strong>SpringMVC</strong></li>
 </ul>
+<p><img src="http://mblogthumb2.phinf.naver.net/20140930_105/exploit_code_1412044004656GKDGj_PNG/1.PNG?type=w2" alt="Spring MVC 흐름"></p>
 <blockquote>
+<ul>
+<li>web.xml(Deploy Decriptor)에 Dispatcher Servlet을 등록함  </li>
+<li>스키마 기반으로 구성하면 multi-action Controller를 구현할 수 없음 -&gt; Handler Mapping  </li>
+<li>Controller는 Request에 대해 화면을 분기해줌  </li>
+<li>servlet-context.xml에 ViewResolver가 등록되어 있으며, annotation-driven으로 Mapper도 등록되어 있음</li>
+<li>root-context.xml이 모델/DAO에 대한 설정을 지니고 있음  </li>
+<li>이 모든 것들이 web.xml에 의해 로드되므로 스프링의 컨테이너가 사용가능해짐</li>
+</ul>
 <p>Client -&gt; <strong>Dispatcher Servlet</strong><br>-&gt; Handler Mapping<br>&lt;-&gt; Controller</p>
 <ul>
 <li>컨트롤러 메서드의 리턴타입은 3개<ul>
