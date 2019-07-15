@@ -15,8 +15,9 @@
 <meta property="og:description" content="LECTURE NOTE - from java to spring특징 Write Once, Run Anywhere     이식성이 상당히 좋다.   *.java -&amp;gt; *.class -&amp;gt; interpreter -&amp;gt; output 자바는 쓰레드 기반이다.  현장 투입시 하는 것  빌드 자동화 툴(Maven) 선정 통합개발환경 설치 형상관리 툴(git">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://lh4.googleusercontent.com/oR0_liUxjMnfgFS-fSuc0x2vCCPLQ0Vdw6w2rBVGloaE_84tRNprqNJEJiyI1unMY8Vpj2CDK9GiQGy03_RmteRz-aM31iIQcZsVZhIH2cLrne_5nY9miXKDmQqEHdY60_WopC0">
-<meta property="og:image" content="http://mblogthumb2.phinf.naver.net/20140930_105/exploit_code_1412044004656GKDGj_PNG/1.PNG?type=w2">
-<meta property="og:updated_time" content="2019-07-15T00:19:19.217Z">
+<meta property="og:image" content="https://t1.daumcdn.net/cfile/tistory/233778375761F13A0C">
+<meta property="og:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F9983FB455BB4E5D30C">
+<meta property="og:updated_time" content="2019-07-15T09:08:40.331Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lecture Note">
 <meta name="twitter:description" content="LECTURE NOTE - from java to spring특징 Write Once, Run Anywhere     이식성이 상당히 좋다.   *.java -&amp;gt; *.class -&amp;gt; interpreter -&amp;gt; output 자바는 쓰레드 기반이다.  현장 투입시 하는 것  빌드 자동화 툴(Maven) 선정 통합개발환경 설치 형상관리 툴(git">
@@ -149,7 +150,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    29분 read (About 4398 words)
+                    31분 read (About 4708 words)
                 </span>
                 
                 
@@ -581,7 +582,7 @@
 <ul>
 <li><strong>Application Context</strong> : 컨테이너 내부에서 동작하는 객체를 유지 (server가 shutdown 되기 전까지 - ex. 로그인 중인 사용자의 정보), 가장 넓은 Scope를 가진다.</li>
 <li><strong><code>Session Context</code></strong> : Last Access Time으로부터 일정 기간동안 유지된다.</li>
-<li><strong><code>Request</code></strong> : Request는 해당 요청이 처리되면 데이터가 사라진다.</li>
+<li><strong><code>Request</code></strong> : Request는 해당 요청이 처리되면 데이터가 사라진다. (<em>Model(@ModelAttribute)</em>, <em>RedirectAttributes</em>)</li>
 <li><strong>Page</strong> : 자기 페이지 내부에서만 작동하는 Scope. 제일 작은 범위.</li>
 </ul>
 <p>서블릿이 자체적으로 JSP에 데이터를 던져줄 수 없으므로, Servlet이 어딘가에 심어놓은(<em>setAttribute()</em>) 데이터를 JSP가 가져오는(<em>getAttribute()</em>) 것이다.  </p>
@@ -686,6 +687,11 @@
 
 <h4 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a><code>AJAX</code></h4><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-string">"#ajaxBtn"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url         : <span class="hljs-string">"./ajaxCtrl"</span>,</span><br><span class="line">        type        : <span class="hljs-string">"post"</span>,</span><br><span class="line">        data        : &#123; <span class="hljs-attr">maker</span> : $(<span class="hljs-string">"#maker"</span>).val()&#125;,</span><br><span class="line">        dataType    : <span class="hljs-string">"json"</span>,</span><br><span class="line">        success     : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>)</span>&#123;</span><br><span class="line">            alert(obj);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>비동기 방식으로 통신할 때 객체를 넘기면(Response를 넘기지 않으면) MVC를 타지 않는다.<br><em>@ResponseBody</em> 키워드를 사용하면 Jackson 라이브러리가 JSON 형식으로 변환해서 보내준다.</p>
+</blockquote>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/doJSON.sinc"</span>)</span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-meta">@ResponseBody</span> <span class="hljs-function">ProductVO <span class="hljs-title">doJSON</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    ProductVO vo = <span class="hljs-keyword">new</span> ProductVO(<span class="hljs-string">"샘플"</span>, <span class="hljs-number">30000</span>);</span><br><span class="line">    <span class="hljs-keyword">return</span> vo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="주석"><a href="#주석" class="headerlink" title="주석"></a><code>주석</code></h4><ul>
 <li>HTML : &lt;!–</li>
 <li>JSP : &lt;%–<ul>
@@ -742,11 +748,11 @@
 <li><strong>AOP</strong></li>
 <li><strong>SpringMVC</strong></li>
 </ul>
-<p><img src="http://mblogthumb2.phinf.naver.net/20140930_105/exploit_code_1412044004656GKDGj_PNG/1.PNG?type=w2" alt="Spring MVC 흐름"></p>
+<p><img src="https://t1.daumcdn.net/cfile/tistory/233778375761F13A0C" alt="Spring MVC 흐름"><br>[출처 : <a href="https://iotsw.tistory.com/tag/HandlerMapping" target="_blank" rel="noopener">https://iotsw.tistory.com/tag/HandlerMapping</a>]</p>
 <blockquote>
 <ul>
 <li>web.xml(Deploy Decriptor)에 Dispatcher Servlet을 등록함  </li>
-<li>스키마 기반으로 구성하면 multi-action Controller를 구현할 수 없음 -&gt; Handler Mapping  </li>
+<li>스키마 기반으로 구성하면 multi-action Controller를 구현할 수 없음 -&gt; Controller Annotation</li>
 <li>Controller는 Request에 대해 화면을 분기해줌  </li>
 <li>servlet-context.xml에 ViewResolver가 등록되어 있으며, annotation-driven으로 Mapper도 등록되어 있음</li>
 <li>root-context.xml이 모델/DAO에 대한 설정을 지니고 있음  </li>
@@ -782,6 +788,32 @@
 <li>@Repository</li>
 </ol>
 </blockquote>
+<h4 id="JUnit"><a href="#JUnit" class="headerlink" title="JUnit"></a><code>JUnit</code></h4><ul>
+<li>모듈 단위테스트를 용이하게 도와주는 라이브러리</li>
+</ul>
+<h4 id="filter-interceptor-AOP"><a href="#filter-interceptor-AOP" class="headerlink" title="filter, interceptor, AOP"></a><code>filter, interceptor, AOP</code></h4><p><img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F9983FB455BB4E5D30C" alt="Filter, Interceptor, AOP"><br>[출처 : <a href="https://goddaehee.tistory.com/154" target="_blank" rel="noopener">https://goddaehee.tistory.com/154</a>]</p>
+<blockquote>
+<ul>
+<li><strong>filter</strong> : Web Container에서 동작, <strong>Servlet 이전</strong><br>사용자의 요청이 post 방식일때만 작동한다.  </li>
+</ul>
+<p>-&gt; get 방식에서는 한글을 가급적 사용하지 않는다.</p>
+<ul>
+<li>ex) 한글 Encoding 작업<ul>
+<li><strong>interceptor</strong> : Dispatcher -&gt; <strong>Controller 이전</strong> (servlet-context)</li>
+</ul>
+</li>
+<li>Request 정보를 지니고 있다가 로그인 후 이용 가능한 장점도 있다.<ul>
+<li><strong>AOP</strong> : <strong>서비스 이전</strong> (root-context)</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInterceptor</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HandlerInterceptorAdapter</span></span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">preHandle</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line"><span class="hljs-comment">//      if(request.getSession().getAttribute("loginUser") == null) &#123;</span></span><br><span class="line"><span class="hljs-comment">//          redirect</span></span><br><span class="line"><span class="hljs-comment">//      &#125;</span></span><br><span class="line">        System.out.println(<span class="hljs-string">"interceptor &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; pre"</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">postHandle</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"interceptor &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; post"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">beans:bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sampleInter"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.sinc.project.interceptor.TestInterceptor"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">interceptors</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">interceptor</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">mapping</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/user/login.sinc"</span>/&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">beans:ref</span> <span class="hljs-attr">bean</span>=<span class="hljs-string">"sampleInter"</span>/&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">interceptor</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">interceptors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="동적-쿼리"><a href="#동적-쿼리" class="headerlink" title="동적 쿼리"></a><code>동적 쿼리</code></h4><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id="search" parameterType="map" resultType="board"&gt;</span><br><span class="line">    <span class="hljs-keyword">SELECT</span> SEQ, TITLE, WRITER, TO_CHAR(REGDATE, <span class="hljs-string">'RRRR-MM-DD'</span>) <span class="hljs-keyword">AS</span> REGDATE, VIEWCNT</span><br><span class="line">    <span class="hljs-keyword">FROM</span> SPRING_BOARD_TBL</span><br><span class="line">    &lt;<span class="hljs-keyword">where</span>&gt;</span><br><span class="line">        &lt;<span class="hljs-keyword">if</span> <span class="hljs-keyword">test</span>=<span class="hljs-string">"#&#123;type&#125; == 'title'"</span>&gt;</span><br><span class="line">            TITLE <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'%'</span> || <span class="hljs-comment">#&#123;title&#125; || '%'</span></span><br><span class="line">        &lt;/<span class="hljs-keyword">if</span>&gt;</span><br><span class="line">        &lt;<span class="hljs-keyword">if</span> <span class="hljs-keyword">test</span>=<span class="hljs-string">"#&#123;type&#125; == 'writer'"</span>&gt; </span><br><span class="line">            WRITER <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'%'</span> || <span class="hljs-comment">#&#123;keyword&#125; || '%'</span></span><br><span class="line">        &lt;/<span class="hljs-keyword">if</span>&gt;</span><br><span class="line">    &lt;/<span class="hljs-keyword">where</span>&gt;</span><br><span class="line">    <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span> <span class="hljs-keyword">DESC</span></span><br><span class="line">&lt;/<span class="hljs-keyword">select</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="hljs-comment">-- WHERE SALARY &lt;![CDATA[ &gt; ]]&gt; 1000 --&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h5 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h5><blockquote>
 <p>배열(2차원), 조건처리, 스트림</p>
 <p>자바, SQL, 웹, 스프링</p>
@@ -798,7 +830,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <h3 class="menu-label has-text-centered">Suka dengan artikel ini? Bantu penulis dengan donasi melalui</h3>
         <div class="buttons is-centered">
             
                 
@@ -1363,7 +1395,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
