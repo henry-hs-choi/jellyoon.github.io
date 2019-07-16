@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>Oracle - DDL - HS CHOI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta name="keywords" content="Oracle Database">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle - DDL">
+<meta property="og:url" content="http://einhugo.github.io/2019/07/16/Oracle - DDL/index.html">
+<meta property="og:site_name" content="HS CHOI">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-07-16T00:07:27.693Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle - DDL">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Oracle - DDL" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-15T23:36:46.000Z">2019-07-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Database/">Database</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    18분 read (About 2740 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Oracle - DDL
+            
+        </h1>
+        <div class="content">
+            <figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">-- &lt;DDL&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment"> * 제약조건에는 COLUMN_CONSTRAINT가 있고, TABLE_CONSTRAINT가 있다.</span></span><br><span class="line"><span class="hljs-comment"> *</span></span><br><span class="line"><span class="hljs-comment"> * NOT NULL과 UNIQUE를 조합해서 PK, FK를 만들 수 있다.</span></span><br><span class="line"><span class="hljs-comment"> * CHECK 제약 조건을 주어 검사할 수도 있다.</span></span><br><span class="line"><span class="hljs-comment"> *</span></span><br><span class="line"><span class="hljs-comment"> * 테이블 이름은 문자로 시작되어야 하고, 30자까지 가능하며 한글도 사용이 가능하다.</span></span><br><span class="line"><span class="hljs-comment"> * 테이블 이름은 객체로 관리되기 때문에 중복이 불가능하다.</span></span><br><span class="line"><span class="hljs-comment"> *</span></span><br><span class="line"><span class="hljs-comment"> * 문자형 DATA TYPE을 사용할 때, 한글은 3바이트임을 명심하고 설계하자.</span></span><br><span class="line"><span class="hljs-comment"> *</span></span><br><span class="line"><span class="hljs-comment"> * 현장에서 우리가 볼 수 있는건 ERD와 TABLE 명세 정도다.</span></span><br><span class="line"><span class="hljs-comment"> *</span></span><br><span class="line"><span class="hljs-comment"> * CONSTRAINT 이름은 보통 tableName[_columnName]_constraintName 형태로 관리한다</span></span><br><span class="line"><span class="hljs-comment"> *</span></span><br><span class="line"><span class="hljs-comment"> * 데이터는 대소문자를 구분해야 한다.</span></span><br><span class="line"><span class="hljs-comment"> *</span></span><br><span class="line"><span class="hljs-comment"> * */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> ORDERS</span><br><span class="line">(ORDERNO	<span class="hljs-built_in">CHAR</span>(<span class="hljs-number">4</span>),</span><br><span class="line"> CUSTNO		<span class="hljs-built_in">CHAR</span>(<span class="hljs-number">4</span>),</span><br><span class="line"> ORDERDATE	<span class="hljs-built_in">DATE</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">SYSDATE</span>,</span><br><span class="line"> SHIPDATE	<span class="hljs-built_in">DATE</span>,</span><br><span class="line"> ...</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- NUMBER 형은 사이즈를 지정하지 않는다면 가변형이 된다.</span></span><br><span class="line"><span class="hljs-comment">-- DEFAULT 옵션을 줄 수 도 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> TABLE_NOTNULL</span><br><span class="line">(<span class="hljs-keyword">ID</span>		<span class="hljs-built_in">CHAR</span>(<span class="hljs-number">3</span>)	<span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line"> SNAME	VARCHAR2(<span class="hljs-number">20</span>));</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> TABLE_NOTNULL2</span><br><span class="line">(<span class="hljs-keyword">ID</span>		<span class="hljs-built_in">CHAR</span>(<span class="hljs-number">3</span>),</span><br><span class="line"> SNAME	VARCHAR2(<span class="hljs-number">20</span>),</span><br><span class="line"> <span class="hljs-keyword">CONSTRAINT</span> TN2_ID_NN <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> (<span class="hljs-keyword">ID</span>)); <span class="hljs-comment">-- ORA-00904: : invalid identifier</span></span><br><span class="line"><span class="hljs-comment">-- NOT NULL 제약조건은 COLUMN LEVEL에서만 사용이 가능하다. (TABLE LEVEL은 불가능하다!)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span>	TABLE_NOTNULL</span><br><span class="line"><span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'100'</span>, <span class="hljs-string">'ORACLE'</span>);</span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span>	TABLE_NOTNULL</span><br><span class="line"><span class="hljs-keyword">VALUES</span> (<span class="hljs-literal">NULL</span>, <span class="hljs-string">'ORACLE'</span>); <span class="hljs-comment">-- ORA-01400: cannot insert NULL into ("HR"."TABLE_NOTNULL"."ID") (0 rows affected)</span></span><br><span class="line"><span class="hljs-comment">-- 1. 컬럼을 만들며 제약 조건을 만드는 방식이 있고 (COLUMN LEVEL)</span></span><br><span class="line"><span class="hljs-comment">-- 2. 컬럼을 다 열거한 후에 제약조건은 나열하는 방식이 있다. (TABLE LEVEL)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> table_name <span class="hljs-keyword">VALUES</span>(<span class="hljs-keyword">value</span> [, <span class="hljs-keyword">value</span>]);</span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> table_name(<span class="hljs-keyword">column</span> [, <span class="hljs-keyword">column</span>]) <span class="hljs-keyword">VALUES</span>(<span class="hljs-keyword">value</span> [, <span class="hljs-keyword">value</span>] [, <span class="hljs-keyword">DEFAULT</span>]);</span><br><span class="line"><span class="hljs-comment">-- column과 value의 데이터 갯수, 데이터 타입이 일치하지 않는다면 error!</span></span><br><span class="line"><span class="hljs-comment">-- DEFAULT로 설정된 COLUMN은 반드시 바뀌어선 안되는 값이어야 한다.</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> TABLE_UNIQUE2</span><br><span class="line">(<span class="hljs-keyword">ID</span>		<span class="hljs-built_in">CHAR</span>(<span class="hljs-number">3</span>),</span><br><span class="line"> SNAME	VARCHAR2(<span class="hljs-number">20</span>),</span><br><span class="line"> SCODE	<span class="hljs-built_in">CHAR</span>(<span class="hljs-number">2</span>),</span><br><span class="line"> <span class="hljs-keyword">CONSTRAINT</span> TN2_ID_UN <span class="hljs-keyword">UNIQUE</span> (<span class="hljs-keyword">ID</span>, SNAME)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> TABLE_UNIQUE2</span><br><span class="line"><span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'100'</span>, <span class="hljs-string">'ORACLE'</span>, <span class="hljs-string">'01'</span>);</span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> TABLE_UNIQUE2</span><br><span class="line"><span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'200'</span>, <span class="hljs-string">'ORACLE'</span>, <span class="hljs-string">'01'</span>);</span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> TABLE_UNIQUE2</span><br><span class="line"><span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'200'</span>, <span class="hljs-string">'ORACLE'</span>, <span class="hljs-string">'02'</span>); <span class="hljs-comment">-- ORA-00001: unique constraint (HR.TN2_ID_UN) violated (0 rows affected)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- UNIQUE 제약은 COLUMN을 조합해서 사용할 수도 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- UNIQUE는 내부적으로 INDEX로 관리가 된다.</span></span><br><span class="line"><span class="hljs-comment">-- SORTING 해서 객체로 만들어져서 관리가 되고 있는 것이다.</span></span><br><span class="line"><span class="hljs-comment">-- PK도 기본적으로 UNIQUE가 걸리는 것 -&gt; INDEX가 별도로 하나 만들어 지는 것.</span></span><br><span class="line"><span class="hljs-comment">-- 해당 COLUMN이 WHERE 절에 활용된다면 FULL TABLE SCAN을 막을 수 있다.</span></span><br><span class="line"><span class="hljs-comment">-- 그러나, 무분별하게 UNIQUE를 사용한다는 것은 인덱스가 많아진다는 것을 의미하게 된다.</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> TABLE_PK2</span><br><span class="line">(<span class="hljs-keyword">ID</span>		<span class="hljs-built_in">CHAR</span>(<span class="hljs-number">3</span>),</span><br><span class="line"> SNAME	VARCHAR2(<span class="hljs-number">20</span>),</span><br><span class="line"> SCODE	<span class="hljs-built_in">CHAR</span>(<span class="hljs-number">2</span>),</span><br><span class="line"> <span class="hljs-keyword">CONSTRAINT</span>	TP2_PK PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-keyword">ID</span>, SNAME));</span><br><span class="line"> </span><br><span class="line"> <span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> TABLE_PK2</span><br><span class="line"> <span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'100'</span>, <span class="hljs-string">'ORACLE'</span>, <span class="hljs-string">'02'</span>);</span><br><span class="line"> <span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> TABLE_PK2</span><br><span class="line"> <span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'100'</span>, <span class="hljs-string">'ORACLE'</span>, <span class="hljs-string">'01'</span>); <span class="hljs-comment">-- ORA-00001: unique constraint (HR.TP2_PK) violated (0 rows affected)</span></span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">-- PK = NOT NULL + UNIQUE</span></span><br><span class="line"><span class="hljs-comment">-- PK는 보통 composite key를 사용하지 않는다.</span></span><br><span class="line"><span class="hljs-comment">--</span></span><br><span class="line"><span class="hljs-comment">-- COMPOSITE PK라면 TABLE LEVEL의 제약조건으로 서술해야 한다.</span></span><br><span class="line"><span class="hljs-comment">-- 같은 테이블에서 두개의(COMPOSITE) FK를 받아오게 된다면 그것 또한 TABLE LEVEL로 구성해야 한다. (COMPOSITE을 그대로 이어받는 것이다)</span></span><br><span class="line"><span class="hljs-comment">--</span></span><br><span class="line"><span class="hljs-comment">-- 개념적 모델링 -&gt; 논리 모델링</span></span><br><span class="line"><span class="hljs-comment">-- 개념적 모델링에서는 관계형 DB 이론이 들어가서는 안된다. (다대다 관계 가능)</span></span><br><span class="line"><span class="hljs-comment">-- 관계형 DB 이론은 논리 모델링에서 생각된다. (RDB에서 다대다 관계를 풀어야 한다.)</span></span><br><span class="line"><span class="hljs-comment">--  -&gt; 교차실제를 사용해서 테이블을 구성한다. (해당 테이블에서의 각 키는 외래키이면서 기본키가 된다.) -&gt; composite PK를 사용하게 된다.</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> TABLE_FK</span><br><span class="line">(<span class="hljs-keyword">ID</span> 	<span class="hljs-built_in">CHAR</span>(<span class="hljs-number">3</span>),</span><br><span class="line"> SNAME	<span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">20</span>),</span><br><span class="line"> LID	<span class="hljs-built_in">CHAR</span>(<span class="hljs-number">2</span>) <span class="hljs-keyword">REFERENCES</span> LOCATION ( LOCATION_ID ) );</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> TABLE_FK</span><br><span class="line"><span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'200'</span>, <span class="hljs-string">'ORACLE'</span>, <span class="hljs-string">'C1'</span>); <span class="hljs-comment">-- ORA-02291: integrity constraint (HR.SYS_C007062) violated - parent key not found (0 rows affected)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 상황에 따라서 PK가 아닌 UNIQUE를 사용하기도 한다</span></span><br><span class="line"><span class="hljs-comment">-- column_name을 명시하지 않아도 알아서 PK / UNIQUE KEY를 찾는다</span></span><br><span class="line"><span class="hljs-comment">-- 상황에 따라서는 테스트를 위해 관계를 끊어놓고 테스트 후 다시 관계를 생성하기도 한다.</span></span><br><span class="line"></span><br><span class="line">ON <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">SET</span> <span class="hljs-literal">NULL</span></span><br><span class="line"><span class="hljs-comment">-- 부모가 지워질 때 NULL로 값을 바꿈</span></span><br><span class="line"><span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">CASCADE</span></span><br><span class="line"><span class="hljs-comment">-- 부모가 지워질 때 같이 지움</span></span><br><span class="line"><span class="hljs-comment">-- 위의 두 설정은 매우 위험하다는 것을 명심하자</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> TABLE_CHECK</span><br><span class="line">(EMP_ID		<span class="hljs-built_in">CHAR</span>(<span class="hljs-number">3</span>)	PRIMARY <span class="hljs-keyword">KEY</span>,</span><br><span class="line"> SALARY		<span class="hljs-built_in">NUMBER</span>	<span class="hljs-keyword">CHECK</span> ( SALARY &gt; <span class="hljs-number">0</span> ),</span><br><span class="line"> MARRIAGE	<span class="hljs-built_in">CHAR</span>(<span class="hljs-number">1</span>),</span><br><span class="line"> <span class="hljs-keyword">CONSTRAINT</span>	CHK_MRG <span class="hljs-keyword">CHECK</span> ( MARRIAGE <span class="hljs-keyword">IN</span> ( <span class="hljs-string">'Y'</span>, <span class="hljs-string">'N'</span>) ) );</span><br><span class="line"> </span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> TABLE_CHECK</span><br><span class="line"><span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'100'</span>, <span class="hljs-number">-100</span>, <span class="hljs-string">'Y'</span>);  <span class="hljs-comment">-- ORA-02290: check constraint (HR.SYS_C007064) violated (0 rows affected)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> TABLE_CHECK</span><br><span class="line"><span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'100'</span>, <span class="hljs-number">500</span>, <span class="hljs-string">'?'</span>);  	<span class="hljs-comment">-- ORA-02290: check constraint (HR.CHK_MRG) violated (0 rows affected)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> TABLE_CHECK</span><br><span class="line"><span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'100'</span>, <span class="hljs-number">500</span>, <span class="hljs-string">'y'</span>);	<span class="hljs-comment">-- ORA-02290: check constraint (HR.CHK_MRG) violated (0 rows affected)</span></span><br><span class="line"><span class="hljs-comment">-- 데이터 조건은 대소문자를 구분한다!</span></span><br><span class="line"><span class="hljs-comment">-- CHECK 제약 조건은 바뀌는 값을 기준으로 두면 안된다!</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> TABLE_SUBQUERY1</span><br><span class="line"><span class="hljs-keyword">AS</span>	<span class="hljs-keyword">SELECT</span>	EMP_ID, EMP_NAME, SALARY, DEPT_NAME, JOB_TITLE</span><br><span class="line">	<span class="hljs-keyword">FROM</span>	EMPLOYEE</span><br><span class="line">	<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span>	DEPARTMENT <span class="hljs-keyword">USING</span> (DEPT_ID)</span><br><span class="line">	<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span>	JOB <span class="hljs-keyword">USING</span> (JOB_ID);</span><br><span class="line"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> TABLE_SUBQUERY1;</span><br><span class="line"><span class="hljs-comment">-- 서브쿼리를 활용하여 테이블을 생성 할 수 있다.</span></span><br><span class="line"><span class="hljs-comment">-- 내부에서 미리 별칭을 지정하고 리턴 받을 수 있다.</span></span><br><span class="line"><span class="hljs-comment">-- CREATE 시점의 AS 키워드는 생략이 불가능하다. (데이터를 받아오려고 할 때)</span></span><br><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment"> * 1. COLUMN의 DATA TYPE을 따로 지정할 수 없다.</span></span><br><span class="line"><span class="hljs-comment"> * 2. 컬럼 이름은 서브쿼리에서 사용한 이름 그대로 사용하여 생략이 가능하다</span></span><br><span class="line"><span class="hljs-comment"> * 3. NOT NULL 제약조건은 자동으로 반영된다. (TABLE LEVEL의 제약조건은 ALTER를 사용해서 추가한다)</span></span><br><span class="line"><span class="hljs-comment"> * 4. 그 외의 제약조건은 생성 시점에 컬럼 레벨에서만 가능하다 (REFERENCES 제약조건은 불가능하다)</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-comment">-- 그러나 메모리의 가용성을 생각한다면 테이블(물리적 구조)보다 뷰를 만드는 것이 나을 것이다.</span></span><br><span class="line"><span class="hljs-comment">-- 뷰는 논리적 구조를 갖고 있다. (휘발성이다) </span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name <span class="hljs-keyword">RENAME</span> <span class="hljs-keyword">TO</span> new_table_name</span><br><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name <span class="hljs-keyword">RENAME</span> [<span class="hljs-keyword">COLUMN</span> column_name] <span class="hljs-keyword">TO</span> new_column_name</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> EMP3 <span class="hljs-keyword">AS</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> EMPLOYEE;</span><br><span class="line"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> EMP3</span><br><span class="line"><span class="hljs-keyword">ADD</span>	PRIMARY <span class="hljs-keyword">KEY</span> (EMP_ID)</span><br><span class="line"><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">UNIQUE</span> (EMP_NO)</span><br><span class="line"><span class="hljs-keyword">MODIFY</span> HIRE_DATE <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>;</span><br><span class="line"><span class="hljs-comment">-- 테이블 이름, 컬럼 이름, 제약조건 이름을 ALTER .. RENAME 키워드로 수정할 수 있다.</span></span><br><span class="line"><span class="hljs-comment">-- 컬럼의 타입이나 DEFAULT, NOT NULL을 NULL로 바꿔주어야 할 경우만 ALTER .. MODIFY 키워드를 사용하면 된다.</span></span><br><span class="line"><span class="hljs-comment">-- 컬럼을 추가하고 싶다면 ALTER .. ADD 키워드</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 컬럼 / 테이블 삭제 : DROP</span></span><br><span class="line"><span class="hljs-comment">-- 레코드 삭제 : DELETE</span></span><br><span class="line"><span class="hljs-comment">-- COLUMN을 DROP 하고 싶더라도 혹시 모르니 DISABLE 시켜놓고 사용하는 경우가 많다.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> [<span class="hljs-keyword">OR</span> <span class="hljs-keyword">REPLACE</span>] <span class="hljs-keyword">VIEW</span> view_name ... <span class="hljs-keyword">AS</span> subquery</span><br><span class="line"><span class="hljs-comment">-- ORACLE에서는 뷰를 하나의 객체(OBJECT)로 본다.</span></span><br><span class="line"><span class="hljs-comment">-- stored query / virtual table이라고도 불린다.</span></span><br><span class="line"><span class="hljs-comment">-- "부분집합을 통한 선택적 정보를 얻고 싶을 때" 뷰를 사용한다. - 복잡한 SQL 구문을 단순화 시킨다.</span></span><br><span class="line"><span class="hljs-comment">-- 보안과 관련된 부분에도 사용한다.</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- (복합)뷰에는 조작(INSERT / DELETE/ UPDATE)이 불가능하다. (단일 테이블 뷰는 조작이 가능하다.)</span></span><br><span class="line"><span class="hljs-comment">-- 복합뷰라고 하더라도 트리거를 만들어서 PL/SQL을 이용하면 가능은 하다.</span></span><br><span class="line"><span class="hljs-comment">-- 뷰의 목적 자체는 읽기 전용이라는 것을 기억하자.</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">REPLACE</span> <span class="hljs-keyword">VIEW</span> V_EMP_DEPT_JOB (ENM, DNM, TITLE)</span><br><span class="line"><span class="hljs-keyword">AS</span>	<span class="hljs-keyword">SELECT</span>	EMP_NAME, DEPT_NAME, JOB_TITLE</span><br><span class="line">	<span class="hljs-keyword">FROM</span>	EMPLOYEE</span><br><span class="line">	<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> 	DEPARTMENT <span class="hljs-keyword">USING</span> (DEPT_ID)</span><br><span class="line">	<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> 	JOB <span class="hljs-keyword">USING</span> (JOB_ID)</span><br><span class="line">	<span class="hljs-keyword">WHERE</span>		JOB_TITLE = <span class="hljs-string">'사원'</span>;</span><br><span class="line">	</span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">REPLACE</span> <span class="hljs-keyword">VIEW</span> V_EMP_DEPT_JOB</span><br><span class="line"><span class="hljs-keyword">AS</span>	<span class="hljs-keyword">SELECT</span>	EMP_NAME <span class="hljs-keyword">AS</span> ENM,</span><br><span class="line">			DEPT_NAME <span class="hljs-keyword">AS</span> DNM,</span><br><span class="line">			JOB_TITLE <span class="hljs-keyword">AS</span> TITLE</span><br><span class="line">	<span class="hljs-keyword">FROM</span>	EMPLOYEE</span><br><span class="line">	<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> 	DEPARTMENT <span class="hljs-keyword">USING</span> (DEPT_ID)</span><br><span class="line">	<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> 	JOB <span class="hljs-keyword">USING</span> (JOB_ID)</span><br><span class="line">	<span class="hljs-keyword">WHERE</span>		JOB_TITLE = <span class="hljs-string">'사원'</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> V_EMP_DEPT_JOB;</span><br><span class="line"><span class="hljs-keyword">SELECT</span> ENM, TITLE <span class="hljs-keyword">FROM</span> V_EMP_DEPT_JOB;</span><br><span class="line"><span class="hljs-comment">-- 뷰에도 각 컬럼 이름에 별칭을 두가지 방법으로 줄 수 있다.</span></span><br><span class="line"><span class="hljs-comment">-- CREATE OR REPLACE로 묶어서 생각하자</span></span><br><span class="line"><span class="hljs-comment">-- 뷰를 사용하지 않을 것이라면 DROP VIEW view_name을 하면 된다</span></span><br><span class="line"><span class="hljs-comment">-- 함수와 같이 특수문자가 사용된 컬럼에 별칭을 주지 않으면 오류가 발생한다.</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">REPLACE</span> <span class="hljs-keyword">VIEW</span> V_DEPT_SALAVG (<span class="hljs-string">"Did"</span>, <span class="hljs-string">"Davg"</span>)</span><br><span class="line"><span class="hljs-keyword">AS</span> 	<span class="hljs-keyword">SELECT</span>	NVL(DEPT_ID, <span class="hljs-string">'N/A'</span>),</span><br><span class="line">			<span class="hljs-keyword">ROUND</span>(<span class="hljs-keyword">AVG</span>(SALARY), <span class="hljs-number">-3</span>)</span><br><span class="line">	<span class="hljs-keyword">FROM</span>	EMPLOYEE</span><br><span class="line">	<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> DEPT_ID;</span><br><span class="line">	</span><br><span class="line"><span class="hljs-keyword">SELECT</span>	EMP_NAME, SALARY</span><br><span class="line"><span class="hljs-keyword">FROM</span>	EMPLOYEE</span><br><span class="line"><span class="hljs-keyword">JOIN</span>	V_DEPT_SALAVG <span class="hljs-keyword">ON</span> ( NVL(DEPT_ID, <span class="hljs-string">'N/A'</span>) = <span class="hljs-string">"Did"</span> )</span><br><span class="line"><span class="hljs-keyword">WHERE</span>	SALARY &gt; <span class="hljs-string">"Davg"</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">2</span> <span class="hljs-keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span>	EMP_NAME, SALARY</span><br><span class="line"><span class="hljs-keyword">FROM</span> 	(<span class="hljs-keyword">SELECT</span>	NVL(DEPT_ID, <span class="hljs-string">'N/A'</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">"Did"</span>,</span><br><span class="line">				<span class="hljs-keyword">ROUND</span>(<span class="hljs-keyword">AVG</span>(SALARY), <span class="hljs-number">-3</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">"Davg"</span></span><br><span class="line">		<span class="hljs-keyword">FROM</span>	EMPLOYEE</span><br><span class="line">		<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> DEPT_ID) INLV</span><br><span class="line"><span class="hljs-keyword">JOIN</span>	EMPLOYEE <span class="hljs-keyword">ON</span> ( NVL(DEPT_ID, <span class="hljs-string">'N/A'</span>) = INLV.<span class="hljs-string">"Did"</span> )</span><br><span class="line"><span class="hljs-keyword">WHERE</span>	SALARY &gt; INLV.<span class="hljs-string">"Davg"</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">2</span> <span class="hljs-keyword">DESC</span>;</span><br><span class="line"><span class="hljs-comment">-- 뷰를 만드는 것과 인라인 뷰를 사용하는 것 모두 결과는 동일하다</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment"> * 최상의 N개를 뽑아오기 위한 것 -&gt; TOP N 분석</span></span><br><span class="line"><span class="hljs-comment"> * </span></span><br><span class="line"><span class="hljs-comment"> * 전제조건 :</span></span><br><span class="line"><span class="hljs-comment"> * 		1. 인라인뷰가 정렬이 되어 있어야 함 (인라인뷰를 만들고)</span></span><br><span class="line"><span class="hljs-comment"> * 		2. ROWNUM 컬럼을 이용하여 순번을 부여하여 검색 조건으로 활용 (ROWNUM을 사용하자!)</span></span><br><span class="line"><span class="hljs-comment"> * </span></span><br><span class="line"><span class="hljs-comment"> * ROWNUM 키워드는 최상위, 혹은 최상위로부터의 범위 식별만 가능하다.</span></span><br><span class="line"><span class="hljs-comment"> * </span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span>	<span class="hljs-keyword">ROWNUM</span>, EMP_NAME, SALARY</span><br><span class="line"><span class="hljs-keyword">FROM</span> 	(<span class="hljs-keyword">SELECT</span>	NVL(DEPT_ID, <span class="hljs-string">'N/A'</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">"Did"</span>,</span><br><span class="line">				<span class="hljs-keyword">ROUND</span>(<span class="hljs-keyword">AVG</span>(SALARY), <span class="hljs-number">-3</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">"Davg"</span></span><br><span class="line">		<span class="hljs-keyword">FROM</span>	EMPLOYEE</span><br><span class="line">		<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> DEPT_ID) INLV</span><br><span class="line"><span class="hljs-keyword">JOIN</span>	EMPLOYEE <span class="hljs-keyword">ON</span> ( NVL(DEPT_ID, <span class="hljs-string">'N/A'</span>) = INLV.<span class="hljs-string">"Did"</span> )</span><br><span class="line"><span class="hljs-keyword">WHERE</span>	SALARY &gt; INLV.<span class="hljs-string">"Davg"</span></span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">3</span> <span class="hljs-keyword">DESC</span>;</span><br><span class="line"><span class="hljs-comment">-- ORDER BY를 사용하니 ROWNUM 결과가 섞인것을 확인할 수 있다. -&gt; X</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span>	<span class="hljs-keyword">ROWNUM</span>, EMP_NAME, SALARY</span><br><span class="line"><span class="hljs-keyword">FROM</span> 	(<span class="hljs-keyword">SELECT</span>	NVL(DEPT_ID, <span class="hljs-string">'N/A'</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">"Did"</span>,</span><br><span class="line">				<span class="hljs-keyword">ROUND</span>(<span class="hljs-keyword">AVG</span>(SALARY), <span class="hljs-number">-3</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">"Davg"</span></span><br><span class="line">		<span class="hljs-keyword">FROM</span>	EMPLOYEE</span><br><span class="line">		<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> DEPT_ID) INLV</span><br><span class="line"><span class="hljs-keyword">JOIN</span>	EMPLOYEE <span class="hljs-keyword">ON</span> ( NVL(DEPT_ID, <span class="hljs-string">'N/A'</span>) = INLV.<span class="hljs-string">"Did"</span> )</span><br><span class="line"><span class="hljs-keyword">WHERE</span>	SALARY &gt; INLV.<span class="hljs-string">"Davg"</span></span><br><span class="line"><span class="hljs-keyword">AND</span>		<span class="hljs-keyword">ROWNUM</span> = <span class="hljs-number">3</span>;</span><br><span class="line"><span class="hljs-comment">-- ROWNUM은 특정 순위만 뽑아서 볼 수 없다. -&gt; X</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span>	<span class="hljs-keyword">ROWNUM</span>, EMP_NAME, SALARY</span><br><span class="line"><span class="hljs-keyword">FROM</span> 	(<span class="hljs-keyword">SELECT</span>	NVL(DEPT_ID, <span class="hljs-string">'N/A'</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">"Did"</span>,</span><br><span class="line">				<span class="hljs-keyword">ROUND</span>(<span class="hljs-keyword">AVG</span>(SALARY), <span class="hljs-number">-3</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">"Davg"</span></span><br><span class="line">		<span class="hljs-keyword">FROM</span>	EMPLOYEE</span><br><span class="line">		<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> DEPT_ID) INLV</span><br><span class="line"><span class="hljs-keyword">JOIN</span>	EMPLOYEE <span class="hljs-keyword">ON</span> ( NVL(DEPT_ID, <span class="hljs-string">'N/A'</span>) = INLV.<span class="hljs-string">"Did"</span> )</span><br><span class="line"><span class="hljs-keyword">WHERE</span>	SALARY &gt; INLV.<span class="hljs-string">"Davg"</span></span><br><span class="line"><span class="hljs-keyword">AND</span>		<span class="hljs-keyword">ROWNUM</span> &lt;= <span class="hljs-number">5</span>;</span><br><span class="line"><span class="hljs-comment">-- 범위를 뽑아서 N개의 레코드를 식별할 수는 있으나 정렬이 되어 있지는 않다. -&gt; X</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> EMP_NAME, SALARY</span><br><span class="line"><span class="hljs-keyword">FROM</span>	(<span class="hljs-keyword">SELECT</span>	EMP_NAME, SALARY</span><br><span class="line">		<span class="hljs-keyword">FROM</span> 	(<span class="hljs-keyword">SELECT</span>	NVL(DEPT_ID, <span class="hljs-string">'N/A'</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">"Did"</span>,</span><br><span class="line">						<span class="hljs-keyword">ROUND</span>(<span class="hljs-keyword">AVG</span>(SALARY), <span class="hljs-number">-3</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">"Davg"</span></span><br><span class="line">				<span class="hljs-keyword">FROM</span>	EMPLOYEE</span><br><span class="line">				<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> DEPT_ID) INLV</span><br><span class="line">		<span class="hljs-keyword">JOIN</span>	EMPLOYEE <span class="hljs-keyword">ON</span> ( NVL(DEPT_ID, <span class="hljs-string">'N/A'</span>) = INLV.<span class="hljs-string">"Did"</span> )</span><br><span class="line">		<span class="hljs-keyword">WHERE</span>	SALARY &gt; INLV.<span class="hljs-string">"Davg"</span></span><br><span class="line">		<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> SALARY <span class="hljs-keyword">DESC</span>)</span><br><span class="line"><span class="hljs-keyword">WHERE</span> 	<span class="hljs-keyword">ROWNUM</span> &lt;=<span class="hljs-number">5</span>;</span><br><span class="line"><span class="hljs-comment">-- 이처럼 순번을 활용하려면 미리 정렬하고 인라인뷰를 사용해야 한다.</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> EMP_NAME, SALARY</span><br><span class="line"><span class="hljs-keyword">FROM</span> (	<span class="hljs-keyword">SELECT</span> EMP_NAME, SALARY, <span class="hljs-keyword">ROWNUM</span> <span class="hljs-keyword">AS</span> RN</span><br><span class="line">		<span class="hljs-keyword">FROM</span>	(<span class="hljs-keyword">SELECT</span>	EMP_NAME, SALARY</span><br><span class="line">				<span class="hljs-keyword">FROM</span> 	(<span class="hljs-keyword">SELECT</span>	NVL(DEPT_ID, <span class="hljs-string">'N/A'</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">"Did"</span>,</span><br><span class="line">								<span class="hljs-keyword">ROUND</span>(<span class="hljs-keyword">AVG</span>(SALARY), <span class="hljs-number">-3</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">"Davg"</span></span><br><span class="line">						<span class="hljs-keyword">FROM</span>	EMPLOYEE</span><br><span class="line">						<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> DEPT_ID) INLV</span><br><span class="line">				<span class="hljs-keyword">JOIN</span>	EMPLOYEE <span class="hljs-keyword">ON</span> ( NVL(DEPT_ID, <span class="hljs-string">'N/A'</span>) = INLV.<span class="hljs-string">"Did"</span> )</span><br><span class="line">				<span class="hljs-keyword">WHERE</span>	SALARY &gt; INLV.<span class="hljs-string">"Davg"</span></span><br><span class="line">				<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> SALARY <span class="hljs-keyword">DESC</span>)</span><br><span class="line">		<span class="hljs-keyword">WHERE</span> 	<span class="hljs-keyword">ROWNUM</span> &lt;=<span class="hljs-number">5</span>)</span><br><span class="line"><span class="hljs-keyword">WHERE</span> 	RN = <span class="hljs-number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 사원테이블에서 많은 급여를 받는 사원의 이름, 직급이름, 급여를 내림차순으로 출력하라</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span>	EMP_NAME, JOB_TITLE, SALARY</span><br><span class="line"><span class="hljs-keyword">FROM</span>	EMPLOYEE E</span><br><span class="line"><span class="hljs-keyword">JOIN</span>	JOB	J <span class="hljs-keyword">USING</span> (JOB_ID)</span><br><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> SALARY <span class="hljs-keyword">DESC</span>;</span><br><span class="line"><span class="hljs-comment">-- 상위 5건만 끊어보기</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span> 	EMP_NAME, JOB_TITLE, SALARY</span><br><span class="line"><span class="hljs-keyword">FROM</span>	(<span class="hljs-keyword">SELECT</span>	EMP_NAME, JOB_TITLE, SALARY</span><br><span class="line">		<span class="hljs-keyword">FROM</span>	EMPLOYEE E</span><br><span class="line">		<span class="hljs-keyword">JOIN</span>	JOB	J <span class="hljs-keyword">USING</span> (JOB_ID)</span><br><span class="line">		<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> SALARY <span class="hljs-keyword">DESC</span>)</span><br><span class="line"><span class="hljs-keyword">WHERE</span>	<span class="hljs-keyword">ROWNUM</span> &lt;= <span class="hljs-number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span> 	*</span><br><span class="line"><span class="hljs-keyword">FROM</span>	(<span class="hljs-keyword">SELECT</span>	EMP_NAME, </span><br><span class="line">				SALARY, </span><br><span class="line">				<span class="hljs-keyword">RANK</span>() <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> SALARY <span class="hljs-keyword">DESC</span>) <span class="hljs-keyword">AS</span> <span class="hljs-keyword">RANK</span></span><br><span class="line">		<span class="hljs-keyword">FROM</span>	EMPLOYEE E)</span><br><span class="line"><span class="hljs-keyword">WHERE</span>	<span class="hljs-keyword">RANK</span> &lt;= <span class="hljs-number">5</span>;</span><br><span class="line"><span class="hljs-comment">-- 위와 같이 두가지 방법을 사용할 수 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span> 	*</span><br><span class="line"><span class="hljs-keyword">FROM</span>	(<span class="hljs-keyword">SELECT</span>	EMP_NAME, </span><br><span class="line">				SALARY, </span><br><span class="line">				<span class="hljs-keyword">RANK</span>() <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> SALARY <span class="hljs-keyword">DESC</span>) <span class="hljs-keyword">AS</span> <span class="hljs-keyword">RANK</span></span><br><span class="line">		<span class="hljs-keyword">FROM</span>	EMPLOYEE E)</span><br><span class="line"><span class="hljs-keyword">WHERE</span>	<span class="hljs-keyword">RANK</span> = <span class="hljs-number">5</span>;</span><br><span class="line"><span class="hljs-comment">-- ROWNUM의 단점인 특정 레코드 식별의 어려움을 RANK()로 극복할수 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">SELECT</span>	<span class="hljs-keyword">RANK</span>(<span class="hljs-number">2300000</span>) <span class="hljs-keyword">WITHIN</span> <span class="hljs-keyword">GROUP</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> SALARY <span class="hljs-keyword">DESC</span>) <span class="hljs-keyword">AS</span> <span class="hljs-keyword">RANK</span></span><br><span class="line"><span class="hljs-keyword">FROM</span>	EMPLOYEE;</span><br><span class="line"><span class="hljs-comment">-- SALARY 값을 순서대로 정렬한 후 2300000은 몇번째 순위인지 반환</span></span><br><span class="line"><span class="hljs-comment">-- 위와같이 RANK(..) WITHIN GROUP을 사용하면 된다</span></span><br><span class="line"><span class="hljs-keyword">SELECT</span>	EMP_NAME, </span><br><span class="line">		SALARY, </span><br><span class="line">		<span class="hljs-keyword">RANK</span>() <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> SALARY <span class="hljs-keyword">DESC</span>) <span class="hljs-keyword">AS</span> <span class="hljs-keyword">RANK</span></span><br><span class="line"><span class="hljs-keyword">FROM</span>	EMPLOYEE E;</span><br><span class="line"><span class="hljs-comment">-- RANK() OVER .. 를 사용하여 전체 순번을 얻어올 수 있다.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- 중복되지 않는 번호를 무한대로 증가하며 매길 수 있다. (MAXVALUE와 CYCLE 설정을 하지 않을 경우)</span></span><br><span class="line"><span class="hljs-comment">-- SEQUENCE는 기본키로도 많이 사용한다</span></span><br><span class="line"><span class="hljs-comment">-- 객체를 삭제할 때는 DELETE가 아닌 DROP 키워드를 사용한다. (SEQUENCE도 객체)</span></span><br></pre></td></tr></table></figure>
+
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Oracle-Database/">Oracle Database</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/16/Oracle - SELECT/">
+                <span class="level-item">Oracle - DML</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="HS CHOI (최형석)">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        HS CHOI (최형석)
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        As a Happiness Driven Developer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Seoul, Korea</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        포스트
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        5
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        카테고리
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        5
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        태그
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/einhugo">
+                팔로우</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/einhugo">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="http://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="http://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="http://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            링크
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">PPOffice</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Algorithm/">
+            <span class="level-start">
+                <span class="level-item">Algorithm</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Database/">
+            <span class="level-start">
+                <span class="level-item">Database</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Manual/">
+            <span class="level-start">
+                <span class="level-item">Manual</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Programming/">
+            <span class="level-start">
+                <span class="level-item">Programming</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Programming/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            태그 클라우드
+        </h3>
+        <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Oracle-Database/" style="font-size: 20px;">Oracle Database</a> <a href="/tags/Sort-Algorithm/" style="font-size: 10px;">Sort Algorithm</a> <a href="/tags/Spring-Framework/" style="font-size: 10px;">Spring Framework</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            최근 글
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/07/16/Oracle - DDL/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Oracle - DDL">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-15T23:36:46.000Z">2019-07-16</time></div>
+                    <a href="/2019/07/16/Oracle - DDL/" class="has-link-black-ter is-size-6">Oracle - DDL</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Database/">Database</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/16/Oracle - SELECT/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Oracle - DML">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-15T23:36:46.000Z">2019-07-16</time></div>
+                    <a href="/2019/07/16/Oracle - SELECT/" class="has-link-black-ter is-size-6">Oracle - DML</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Database/">Database</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/10/Lecture Note - from java to spring/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Lecture Note">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-10T06:55:00.000Z">2019-07-10</time></div>
+                    <a href="/2019/07/10/Lecture Note - from java to spring/" class="has-link-black-ter is-size-6">Lecture Note</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Programming/">Programming</a> / <a class="has-link-grey -link" href="/categories/Programming/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/10/Sort-Algorithm-Exchange-Sort/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Sort Algo - Exchange Sort">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-10T01:41:46.000Z">2019-07-10</time></div>
+                    <a href="/2019/07/10/Sort-Algorithm-Exchange-Sort/" class="has-link-black-ter is-size-6">Sort Algo - Exchange Sort</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/10/hello-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-10T01:36:46.000Z">2019-07-10</time></div>
+                    <a href="/2019/07/10/hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Manual/">Manual</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            아카이브
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">7월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                태그
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Java/">
+                        <span class="tag">Java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Oracle-Database/">
+                        <span class="tag">Oracle Database</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Sort-Algorithm/">
+                        <span class="tag">Sort Algorithm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-Framework/">
+                        <span class="tag">Spring Framework</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            최근 글
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/07/16/Oracle - DDL/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Oracle - DDL">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-15T23:36:46.000Z">2019-07-16</time></div>
+                    <a href="/2019/07/16/Oracle - DDL/" class="has-link-black-ter is-size-6">Oracle - DDL</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Database/">Database</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/16/Oracle - SELECT/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Oracle - DML">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-15T23:36:46.000Z">2019-07-16</time></div>
+                    <a href="/2019/07/16/Oracle - SELECT/" class="has-link-black-ter is-size-6">Oracle - DML</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Database/">Database</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/10/Lecture Note - from java to spring/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Lecture Note">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-10T06:55:00.000Z">2019-07-10</time></div>
+                    <a href="/2019/07/10/Lecture Note - from java to spring/" class="has-link-black-ter is-size-6">Lecture Note</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Programming/">Programming</a> / <a class="has-link-grey -link" href="/categories/Programming/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/10/Sort-Algorithm-Exchange-Sort/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Sort Algo - Exchange Sort">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-10T01:41:46.000Z">2019-07-10</time></div>
+                    <a href="/2019/07/10/Sort-Algorithm-Exchange-Sort/" class="has-link-black-ter is-size-6">Sort Algo - Exchange Sort</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/10/hello-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-10T01:36:46.000Z">2019-07-10</time></div>
+                    <a href="/2019/07/10/hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Manual/">Manual</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            아카이브
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">7월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                태그
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Java/">
+                        <span class="tag">Java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Oracle-Database/">
+                        <span class="tag">Oracle Database</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Sort-Algorithm/">
+                        <span class="tag">Sort Algorithm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-Framework/">
+                        <span class="tag">Spring Framework</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Oracle - DDL" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 HS CHOI (최형석)&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: 'Pages',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
