@@ -161,7 +161,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    33분 read (About 4932 words)
+                    33분 read (About 4920 words)
                 </span>
                 
                 
@@ -338,7 +338,7 @@
 </li>
 </ul>
 </blockquote>
-<h4 id="배열-★문제-나옴"><a href="#배열-★문제-나옴" class="headerlink" title="배열 [★문제 나옴]"></a><code>배열</code> [★문제 나옴]</h4><blockquote>
+<h4 id="배열"><a href="#배열" class="headerlink" title="배열"></a><code>배열</code></h4><blockquote>
 <ul>
 <li>객체로 취급  </li>
 <li>fixed size  </li>
@@ -352,7 +352,7 @@
 <li>enhanced for loop (for-each) : JIT compiler에 의한 내부순환자</li>
 <li>iterator : 가장 빠름</li>
 </ol>
-<h4 id="파일입출력-★문제-나옴"><a href="#파일입출력-★문제-나옴" class="headerlink" title="파일입출력 [★문제 나옴]"></a><code>파일입출력</code> [★문제 나옴]</h4><h4 id="추상클래스-인터페이스"><a href="#추상클래스-인터페이스" class="headerlink" title="추상클래스 / 인터페이스"></a><code>추상클래스 / 인터페이스</code></h4><blockquote>
+<h4 id="파일입출력"><a href="#파일입출력" class="headerlink" title="파일입출력"></a><code>파일입출력</code></h4><h4 id="추상클래스-인터페이스"><a href="#추상클래스-인터페이스" class="headerlink" title="추상클래스 / 인터페이스"></a><code>추상클래스 / 인터페이스</code></h4><blockquote>
 <ul>
 <li>공통점 : 표준의 역할을 하기 위함  </li>
 <li>차이점 : 객체 생성이 되지 않음</li>
@@ -875,8 +875,7 @@
 <h4 id="동적-쿼리"><a href="#동적-쿼리" class="headerlink" title="동적 쿼리"></a><code>동적 쿼리</code></h4><figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">"map"</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">"board"</span>&gt;</span></span><br><span class="line">    SELECT SEQ, TITLE, WRITER, TO_CHAR(REGDATE, 'RRRR-MM-DD') AS REGDATE, VIEWCNT</span><br><span class="line">    FROM SPRING_BOARD_TBL</span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">where</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">"#&#123;type&#125; == 'title'"</span>&gt;</span></span><br><span class="line">            TITLE LIKE '%' || #&#123;title&#125; || '%'</span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">"#&#123;type&#125; == 'writer'"</span>&gt;</span> </span><br><span class="line">            WRITER LIKE '%' || #&#123;keyword&#125; || '%'</span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">where</span>&gt;</span></span><br><span class="line">    ORDER BY 1 DESC</span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;-- WHERE SALARY &lt;![CDATA[ &gt; ]]&gt; 1000 --&gt;</span><br></pre></td></tr></table></figure>
 
 <h5 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h5><blockquote>
-<p>배열(2차원), 조건처리, 스트림</p>
-<p>자바, SQL, 웹, 스프링</p>
+<p>배열(2차원), 조건처리, 스트림(파일입출력)</p>
 </blockquote>
 
         </div>
