@@ -161,7 +161,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    18분 read (About 2763 words)
+                    18분 read (About 2770 words)
                 </span>
                 
                 
@@ -188,20 +188,20 @@
 </li>
 </ul>
 </blockquote>
-<h2 id="테이블-이름"><a href="#테이블-이름" class="headerlink" title="테이블 이름"></a>테이블 이름</h2><blockquote>
+<h2 id="CREATE"><a href="#CREATE" class="headerlink" title="CREATE"></a>CREATE</h2><h3 id="테이블-이름"><a href="#테이블-이름" class="headerlink" title="테이블 이름"></a>테이블 이름</h3><blockquote>
 <ul>
 <li>테이블 이름은 문자로 시작되어야 한다.</li>
 <li>30자까지 가능하고, 한글도 된다.</li>
 <li>객체로 관리되기 때문에 중복이 불가능하다.</li>
 </ul>
 </blockquote>
-<h2 id="데이터-타입"><a href="#데이터-타입" class="headerlink" title="데이터 타입"></a>데이터 타입</h2><blockquote>
+<h3 id="데이터-타입"><a href="#데이터-타입" class="headerlink" title="데이터 타입"></a>데이터 타입</h3><blockquote>
 <ul>
 <li>문자형 DATA TYPE을 사용할 때, <code>한글은 3바이트</code>임을 명심하고 설계하자.</li>
 <li>데이터는 대소문자를 구분해야 한다.</li>
 </ul>
 </blockquote>
-<h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><blockquote>
+<h3 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h3><blockquote>
 <ul>
 <li>현장에서 우리가 볼 수 있는건 ERD와 TABLE 명세 정도다.</li>
 </ul>
@@ -374,7 +374,7 @@
 </li>
 </ul>
 </blockquote>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> [<span class="hljs-keyword">OR</span> <span class="hljs-keyword">REPLACE</span>] <span class="hljs-keyword">VIEW</span> view_name ... <span class="hljs-keyword">AS</span> subquery</span><br></pre></td></tr></table></figure>
+<h2 id="뷰-VIEW"><a href="#뷰-VIEW" class="headerlink" title="뷰 (VIEW)"></a>뷰 (VIEW)</h2><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> [<span class="hljs-keyword">OR</span> <span class="hljs-keyword">REPLACE</span>] <span class="hljs-keyword">VIEW</span> view_name ... <span class="hljs-keyword">AS</span> subquery</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <ul>
@@ -490,8 +490,11 @@
 
 <blockquote>
 <ul>
-<li><p><strong>RANK() OVER ..</strong> 를 사용하여 전체 순번을 얻어올 수 있다.</p>
-</li>
+<li><strong>RANK() OVER ..</strong> 를 사용하여 전체 순번을 얻어올 수 있다.</li>
+</ul>
+</blockquote>
+<h2 id="시퀀스-SEQUENCE"><a href="#시퀀스-SEQUENCE" class="headerlink" title="시퀀스 (SEQUENCE)"></a>시퀀스 (SEQUENCE)</h2><blockquote>
+<ul>
 <li><p>중복되지 않는 번호를 무한대로 증가하며 매길 수 있다.</p>
 <ul>
 <li>(<strong>MAXVALUE</strong>와 <strong>CYCLE</strong> 설정을 하지 않을 경우)</li>
