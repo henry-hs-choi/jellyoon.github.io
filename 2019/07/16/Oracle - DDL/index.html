@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="HS CHOI">
 <meta property="og:description" content="DDL제약 조건 COLUMN_CONSTRAINT  TABLE_CONSTRAINT  CONSTRAINT 이름은 보통 tableName[_columnName]_constraintName 형태로 관리한다  NOT NULL과 UNIQUE를 조합해서 PK, FK를 만들 수 있다.  CHECK 제약 조건을 주어 값을 검사할 수도 있다.   CREATE테이블 이름 테이">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-07-19T06:16:02.826Z">
+<meta property="og:updated_time" content="2019-07-19T06:43:33.116Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Oracle - DDL">
 <meta name="twitter:description" content="DDL제약 조건 COLUMN_CONSTRAINT  TABLE_CONSTRAINT  CONSTRAINT 이름은 보통 tableName[_columnName]_constraintName 형태로 관리한다  NOT NULL과 UNIQUE를 조합해서 PK, FK를 만들 수 있다.  CHECK 제약 조건을 주어 값을 검사할 수도 있다.   CREATE테이블 이름 테이">
@@ -245,20 +245,18 @@
 <li>COMPOSITE을 그대로 이어받는 개념</li>
 </ul>
 </li>
-<li><p>개념적 모델링 -논리 모델링</p>
+<li><p>개념적 모델링 -&gt; 논리 모델링</p>
 <ul>
-<li>개념적 모델링에서는 관계형 DB 이론이 들어가서는 안된다.  </li>
-</ul>
-</li>
-</ul>
-<p>-(다대다 관계 가능)</p>
-<ul>
-<li>관계형 DB 이론은 논리 모델링에서 생각된다.<br>-(RDB에서 다대다 관계를 풀어야 한다.)<ul>
+<li>개념적 모델링에서는 관계형 DB 이론이 들어가서는 안된다.<br>(다대다 관계 가능)</li>
+<li>관계형 DB 이론은 논리 모델링에서 생각된다.<br>(RDB에서 다대다 관계를 풀어야 한다.)<ul>
 <li>교차실제를 사용해서 테이블을 구성한다.</li>
 <li>(해당 테이블에서의 각 키는 외래키이면서 기본키가 된다.)  </li>
 </ul>
--composite PK를 사용하게 된다.</li>
+</li>
 </ul>
+</li>
+</ul>
+<p>-composite PK를 사용하게 된다.</p>
 <figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> TABLE_FK</span><br><span class="line">  (</span><br><span class="line">     <span class="hljs-keyword">ID</span>    <span class="hljs-built_in">CHAR</span>(<span class="hljs-number">3</span>),</span><br><span class="line">     SNAME <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">20</span>),</span><br><span class="line">     LID   <span class="hljs-built_in">CHAR</span>(<span class="hljs-number">2</span>) <span class="hljs-keyword">REFERENCES</span> LOCATION ( LOCATION_ID )</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> TABLE_FK</span><br><span class="line"><span class="hljs-keyword">VALUES</span>      (<span class="hljs-string">'200'</span>,</span><br><span class="line">             <span class="hljs-string">'ORACLE'</span>,</span><br><span class="line">             <span class="hljs-string">'C1'</span>);</span><br><span class="line">ORA-02291: integrity constraint (HR.SYS_C007062) violated - parent key not found (0 rows affected)</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -498,6 +496,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/07/22/Cloud/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Cloud</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/16/Oracle - SELECT/">
@@ -553,7 +558,7 @@
                         포스트
                     </p>
                     <p class="title has-text-weight-normal">
-                        5
+                        6
                     </p>
                 </div>
             </div>
@@ -563,7 +568,7 @@
                         카테고리
                     </p>
                     <p class="title has-text-weight-normal">
-                        5
+                        7
                     </p>
                 </div>
             </div>
@@ -573,7 +578,7 @@
                         태그
                     </p>
                     <p class="title has-text-weight-normal">
-                        4
+                        5
                     </p>
                 </div>
             </div>
@@ -679,6 +684,22 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/Cloud/">
+            <span class="level-start">
+                <span class="level-item">Cloud</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Cloud/AWS/">
+            <span class="level-start">
+                <span class="level-item">AWS</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/Database/">
             <span class="level-start">
                 <span class="level-item">Database</span>
@@ -722,7 +743,7 @@
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Oracle-Database/" style="font-size: 20px;">Oracle Database</a> <a href="/tags/Sort-Algorithm/" style="font-size: 10px;">Sort Algorithm</a> <a href="/tags/Spring-Framework/" style="font-size: 10px;">Spring Framework</a>
+        <a href="/tags/AWS/" style="font-size: 10px;">AWS</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Oracle-Database/" style="font-size: 20px;">Oracle Database</a> <a href="/tags/Sort-Algorithm/" style="font-size: 10px;">Sort Algorithm</a> <a href="/tags/Spring-Framework/" style="font-size: 10px;">Spring Framework</a>
     </div>
 </div>
 
@@ -736,6 +757,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/07/22/Cloud/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Cloud">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-22T06:06:46.000Z">2019-07-22</time></div>
+                    <a href="/2019/07/22/Cloud/" class="has-link-black-ter is-size-6">Cloud</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Cloud/">Cloud</a> / <a class="has-link-grey -link" href="/categories/Cloud/AWS/">AWS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -813,25 +853,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/07/10/hello-world/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-10T01:36:46.000Z">2019-07-10</time></div>
-                    <a href="/2019/07/10/hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Manual/">Manual</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -850,7 +871,7 @@
                     <span class="level-item">7월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -867,6 +888,13 @@
                 태그
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Java/">
@@ -921,6 +949,25 @@
         
         <article class="media">
             
+            <a href="/2019/07/22/Cloud/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Cloud">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-22T06:06:46.000Z">2019-07-22</time></div>
+                    <a href="/2019/07/22/Cloud/" class="has-link-black-ter is-size-6">Cloud</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Cloud/">Cloud</a> / <a class="has-link-grey -link" href="/categories/Cloud/AWS/">AWS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/07/16/Oracle - DDL/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Oracle - DDL">
@@ -995,25 +1042,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/07/10/hello-world/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-10T01:36:46.000Z">2019-07-10</time></div>
-                    <a href="/2019/07/10/hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Manual/">Manual</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1032,7 +1060,7 @@
                     <span class="level-item">7월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1049,6 +1077,13 @@
                 태그
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Java/">
