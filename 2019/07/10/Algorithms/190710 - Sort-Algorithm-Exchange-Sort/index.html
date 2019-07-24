@@ -2,21 +2,23 @@
 <html lang="ko">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>아카이브: 2019/7 - HS CHOI</title>
+<title>Sort Algorithm - Exchange Sort - HS CHOI</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Develop">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HS CHOI">
-<meta property="og:url" content="http://einhugo.github.io/archives/2019/07/index.html">
+    <meta name="description" content="1. 교환정렬 (Exchange Sort)Algorithm : O(n^2)12345678910void exchangeSort(int n, keytype S[])&amp;#123;    index i, j;    for (i = 1; i &amp;lt; n; i++)&amp;#123;        for (j = i+1; j &amp;lt;= n; j++)&amp;#123;">
+<meta name="keywords" content="Sort Algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sort Algorithm - Exchange Sort">
+<meta property="og:url" content="http://einhugo.github.io/2019/07/10/Algorithms/190710 - Sort-Algorithm-Exchange-Sort/index.html">
 <meta property="og:site_name" content="HS CHOI">
-<meta property="og:description" content="Develop">
+<meta property="og:description" content="1. 교환정렬 (Exchange Sort)Algorithm : O(n^2)12345678910void exchangeSort(int n, keytype S[])&amp;#123;    index i, j;    for (i = 1; i &amp;lt; n; i++)&amp;#123;        for (j = i+1; j &amp;lt;= n; j++)&amp;#123;">
 <meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-07-24T00:10:14.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HS CHOI">
-<meta name="twitter:description" content="Develop">
+<meta name="twitter:title" content="Sort Algorithm - Exchange Sort">
+<meta name="twitter:description" content="1. 교환정렬 (Exchange Sort)Algorithm : O(n^2)12345678910void exchangeSort(int n, keytype S[])&amp;#123;    index i, j;    for (i = 1; i &amp;lt; n; i++)&amp;#123;        for (j = i+1; j &amp;lt;= n; j++)&amp;#123;">
 
 
 
@@ -88,7 +90,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="HS CHOI" height="28">
+                <img src="/images/logo.svg" alt="Sort Algorithm - Exchange Sort" height="28">
             
             </a>
         </div>
@@ -133,149 +135,132 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="tag is-link">
-        7월 2019
-        </h3>
-        <div class="timeline">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
         
-            <article class="media">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-10T01:41:46.000Z">2019-07-10</time>
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-23T02:06:46.000Z">2019-07-23</time>
-                        <a href="/2019/07/23/Cloud/190723 - Cloud - Architecture/" class="has-link-black-ter is-size-6">Cloud - Architecture</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Cloud/">Cloud</a> / <a class="has-link-grey -link" href="/categories/Cloud/AWS/">AWS</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
                 </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-22T08:06:46.000Z">2019-07-22</time>
-                        <a href="/2019/07/22/Cloud/190722 - Cloud - Basic/" class="has-link-black-ter is-size-6">Cloud - Basic</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Cloud/">Cloud</a> / <a class="has-link-grey -link" href="/categories/Cloud/AWS/">AWS</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-15T23:36:46.000Z">2019-07-16</time>
-                        <a href="/2019/07/16/Database/190716 - Oracle - DDL/" class="has-link-black-ter is-size-6">Oracle - DDL</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Database/">Database</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3분 read (About 426 words)
+                </span>
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-15T23:36:46.000Z">2019-07-16</time>
-                        <a href="/2019/07/16/Database/190716 - Oracle - SELECT/" class="has-link-black-ter is-size-6">Oracle - SELECT</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Database/">Database</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-10T06:55:00.000Z">2019-07-10</time>
-                        <a href="/2019/07/10/Web/190710 - Web Lecture Note/" class="has-link-black-ter is-size-6">Lecture Note - from java to spring</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Programming/">Programming</a> / <a class="has-link-grey -link" href="/categories/Programming/Web/">Web</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-10T01:41:46.000Z">2019-07-10</time>
-                        <a href="/2019/07/10/Algorithms/190710 - Sort-Algorithm-Exchange-Sort/" class="has-link-black-ter is-size-6">Sort Algorithm - Exchange Sort</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Algorithm/">Algorithm</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-10T01:36:46.000Z">2019-07-10</time>
-                        <a href="/2019/07/10/ETC/190710 - hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Manual/">Manual</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
+            </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Sort Algorithm - Exchange Sort
+            
+        </h1>
+        <div class="content">
+            <h2 id="1-교환정렬-Exchange-Sort"><a href="#1-교환정렬-Exchange-Sort" class="headerlink" title="1. 교환정렬 (Exchange Sort)"></a>1. 교환정렬 (Exchange Sort)</h2><h3 id="Algorithm-O-n-2"><a href="#Algorithm-O-n-2" class="headerlink" title="Algorithm : O(n^2)"></a>Algorithm : <em>O(n^2)</em></h3><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exchangeSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, keytype S[])</span></span>&#123;</span><br><span class="line">    index i, j;</span><br><span class="line">    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">for</span> (j = i+<span class="hljs-number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (S[j] &lt; S[i])&#123;</span><br><span class="line">                exchange S[i] and S[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>우선 첫 인덱스에 비교 지점<em>(i)_을 고정해 놓고 끝까지 탐색</em>(j++)_해가며 계속 <strong>교환</strong>한다.</p>
+</li>
+<li><p>루프_(for-i)_가 한 번 수행될 때마다 앞 인덱스부터 최소 값이 오게된다.</p>
+</li>
+</ul>
+<ul>
+<li><p>레벨-2 의 “b &lt; a” 노드는 우측 자식을 갖지 않도록 해야 한다. 앞서 루트에서 이미 해당 연산의 결과를 보였기 때문에, 우측 자식이 있는 경우는 모순인 것이다. 이처럼 가지치기를 해주어야 한다.</p>
+</li>
+<li><p>우리는 이 점에서 “b &lt; a” 연산이 두 번 시행되었다는 사실을 알 수 있다. SubOptimal한 알고리즘의 경우에는 “b &lt; a”가 참이라는 사실을 알 지 못하므로 이와같은 불필요한 연산이 추가로 수행된다.</p>
+</li>
+</ul>
+<h3 id="Every-case-Time-Complexity"><a href="#Every-case-Time-Complexity" class="headerlink" title="Every-case Time Complexity"></a>Every-case Time Complexity</h3><ul>
+<li><p>값을 비교함으로써 정렬을 수행하는 알고리즘이므로, <em>두 숫자 사이의 값 비교</em> 연산이 <strong>Basic Operation</strong>이 된다.</p>
+</li>
+<li><p>정렬할 항목의 수가 <strong>n</strong>이 된다</p>
+</li>
+<li><p>첫 번째 <code>(for-i)</code> 루프에서는 n-1번<em>(2..n)</em> 의 <code>(for-j)</code> 루프를 수행하고, 두 번째 <code>(for-i)</code> 루프에서는 n-2번_(3..n)_의 <code>(for-j)</code> 루프를 수행한다. 이 처럼 <code>for-j</code> 루프의 수행 횟수는 1씩 줄어든다. 이를 모두 더한 것이 시간복잡도가 된다.</p>
+</li>
+<li><p>교환 정렬은 항상 위의 모든 연산을 수행하므로, Every-Case Time Complexity는 (n-1)n / 2이다. 즉, O(n^2)이라고 할 수 있다.</p>
+</li>
+</ul>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Sort-Algorithm/">Sort Algorithm</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/07/10/Web/190710 - Web Lecture Note/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Lecture Note - from java to spring</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/10/ETC/190710 - hello-world/">
+                <span class="level-item">Hello World</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
     </div>
 </div>
 
@@ -909,7 +894,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="HS CHOI" height="28">
+                    <img src="/images/logo.svg" alt="Sort Algorithm - Exchange Sort" height="28">
                 
                 </a>
                 <p class="is-size-7">
