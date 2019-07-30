@@ -161,7 +161,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2분 read (About 236 words)
+                    3분 read (About 404 words)
                 </span>
                 
                 
@@ -180,22 +180,21 @@
 <li><p>설치한 Oracle 버전에 맞는 Instant Client (Oracle Call Interface) 파일을 받아야한다.<br><a href="https://www.oracle.com/database/technologies/instant-client/microsoft-windows-32-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/database/technologies/instant-client/microsoft-windows-32-downloads.html</a></p>
 </li>
 <li><p>시스템 환경변수 Path에 해당 인터페이스의 압축을 푼 경로(C:\instantclient_19_3)를 설정한다</p>
-<ul>
-<li>여기까지 할 경우 툴의 실행 자체는 문제 없어진다. 이후의 설정은 TNS 셋팅(tnsnames.ora)을 불러오고 클라이언트의 언어 설정을 위한 것이다.</li>
-</ul>
 </li>
-<li><p>시스템 환경변수에 아래 내용을 추가한다.</p>
-<ul>
+</ol>
+<h3 id="여기까지-할-경우-툴의-실행-자체는-문제-없어진다-이후의-설정은-TNS-셋팅-tnsnames-ora-을-불러오고-클라이언트의-언어-설정을-위한-것이다"><a href="#여기까지-할-경우-툴의-실행-자체는-문제-없어진다-이후의-설정은-TNS-셋팅-tnsnames-ora-을-불러오고-클라이언트의-언어-설정을-위한-것이다" class="headerlink" title="여기까지 할 경우 툴의 실행 자체는 문제 없어진다. 이후의 설정은 TNS 셋팅(tnsnames.ora)을 불러오고 클라이언트의 언어 설정을 위한 것이다"></a>여기까지 할 경우 툴의 실행 자체는 문제 없어진다. 이후의 설정은 TNS 셋팅(tnsnames.ora)을 불러오고 클라이언트의 언어 설정을 위한 것이다</h3><ul>
+<li>시스템 환경변수에 아래 내용을 추가한다.<ul>
 <li>ORACLE_HOME = C:\instantclient_19_3</li>
 <li>TNS_ADMIN = C:\oraclexe\app\oracle\product\11.2.0\server\network\ADMIN<br>(tnsnames.ora 파일이 위치해 있는 디렉토리)</li>
 <li>NLS_LANG = AMERICAN_AMERICA.US7ASCII (DB 서버의 캐릭터셋과 일치시킨다)</li>
 </ul>
 </li>
-</ol>
+</ul>
 <blockquote>
 <p>출처 :</p>
 <p><a href="http://m.blog.naver.com/ehcibear314/220271947239" target="_blank" rel="noopener">http://m.blog.naver.com/ehcibear314/220271947239</a><br><a href="http://epr.pe.kr/wordpress/?p=451" target="_blank" rel="noopener">http://epr.pe.kr/wordpress/?p=451</a></p>
 </blockquote>
+<h2 id="추가"><a href="#추가" class="headerlink" title="추가"></a>추가</h2><p>만약 SQLTools 대신 SQL Developer를 사용하여 Oracle에 연결할 경우, 캐릭터셋 설정에 어려움이 있다.<br>DB 서버와 클라이언트의 캐릭터셋을 모두 US7ASCII로 맞춰주어도 한글이 깨지는 문제가 발생한다.<br>레지스트리, 환경변수 모두 제대로 셋팅해 주었으나 SQL Developer 자체적인 셋팅이 별도로 존재(놀랍게도 인코딩 셋팅 / NLS 셋팅이 툴 내에 별개로 있다..)하기 때문에 어떤 조합으로 셋팅을 하더라도 문제가 해결되지 않았다.<br><strong>그러니까 마음 편하게 SQLTools 쓰자</strong></p>
 
         </div>
         
@@ -1028,25 +1027,6 @@
         
         <article class="media">
             
-            <a href="/2019/07/28/Books/190728 - The Art of Readable Code/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="(읽는 중) The Art of Readable Code - 읽기 좋은 코드가 좋은 코드다 (2011, Dustin Boswell / Trevor Foucher)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-27T15:08:46.000Z">2019-07-28</time></div>
-                    <a href="/2019/07/28/Books/190728 - The Art of Readable Code/" class="has-link-black-ter is-size-6">(읽는 중) The Art of Readable Code - 읽기 좋은 코드가 좋은 코드다 (2011, Dustin Boswell / Trevor Foucher)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Books/">Books</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
             <a href="/2019/07/28/Books/190728 - Clean Code/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="(읽는 중) Clean Code - 클린코드 (2008, Robert C. Martin)">
@@ -1057,6 +1037,25 @@
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-27T15:08:46.000Z">2019-07-28</time></div>
                     <a href="/2019/07/28/Books/190728 - Clean Code/" class="has-link-black-ter is-size-6">(읽는 중) Clean Code - 클린코드 (2008, Robert C. Martin)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Books/">Books</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/28/Books/190728 - The Art of Readable Code/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="(읽는 중) The Art of Readable Code - 읽기 좋은 코드가 좋은 코드다 (2011, Dustin Boswell / Trevor Foucher)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-27T15:08:46.000Z">2019-07-28</time></div>
+                    <a href="/2019/07/28/Books/190728 - The Art of Readable Code/" class="has-link-black-ter is-size-6">(읽는 중) The Art of Readable Code - 읽기 좋은 코드가 좋은 코드다 (2011, Dustin Boswell / Trevor Foucher)</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Books/">Books</a>
                     </p>
@@ -1259,25 +1258,6 @@
         
         <article class="media">
             
-            <a href="/2019/07/28/Books/190728 - The Art of Readable Code/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="(읽는 중) The Art of Readable Code - 읽기 좋은 코드가 좋은 코드다 (2011, Dustin Boswell / Trevor Foucher)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-27T15:08:46.000Z">2019-07-28</time></div>
-                    <a href="/2019/07/28/Books/190728 - The Art of Readable Code/" class="has-link-black-ter is-size-6">(읽는 중) The Art of Readable Code - 읽기 좋은 코드가 좋은 코드다 (2011, Dustin Boswell / Trevor Foucher)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Books/">Books</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
             <a href="/2019/07/28/Books/190728 - Clean Code/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="(읽는 중) Clean Code - 클린코드 (2008, Robert C. Martin)">
@@ -1288,6 +1268,25 @@
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-27T15:08:46.000Z">2019-07-28</time></div>
                     <a href="/2019/07/28/Books/190728 - Clean Code/" class="has-link-black-ter is-size-6">(읽는 중) Clean Code - 클린코드 (2008, Robert C. Martin)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Books/">Books</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/28/Books/190728 - The Art of Readable Code/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="(읽는 중) The Art of Readable Code - 읽기 좋은 코드가 좋은 코드다 (2011, Dustin Boswell / Trevor Foucher)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-27T15:08:46.000Z">2019-07-28</time></div>
+                    <a href="/2019/07/28/Books/190728 - The Art of Readable Code/" class="has-link-black-ter is-size-6">(읽는 중) The Art of Readable Code - 읽기 좋은 코드가 좋은 코드다 (2011, Dustin Boswell / Trevor Foucher)</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Books/">Books</a>
                     </p>
