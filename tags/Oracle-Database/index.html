@@ -150,6 +150,72 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-30T08:36:46.000Z">2019-07-30</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Database/">Database</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2분 read (About 236 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/07/30/Database/190716 - Oracle - SQLTools/">Oracle - SQLTools 설치</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="오라클-클라이언트-툴-SQLTools-설치"><a href="#오라클-클라이언트-툴-SQLTools-설치" class="headerlink" title="오라클 클라이언트 툴 SQLTools 설치"></a>오라클 클라이언트 툴 SQLTools 설치</h2><p>이 글에서는 Windows 환경에서 오라클 클라이언트 무료 툴 SQLTools 설치 시 <code>0xc000007b 실행오류</code>가 나오는 경우 해결법을 서술하였다.</p>
+<p><strong>SQLTools 다운로드 경로</strong><br><a href="http://www.sqltools.net/" target="_blank" rel="noopener">http://www.sqltools.net/</a></p>
+<ol>
+<li><p>설치한 Oracle 버전에 맞는 Instant Client (Oracle Call Interface) 파일을 받아야한다.<br><a href="https://www.oracle.com/database/technologies/instant-client/microsoft-windows-32-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/database/technologies/instant-client/microsoft-windows-32-downloads.html</a></p>
+</li>
+<li><p>시스템 환경변수 Path에 해당 인터페이스의 압축을 푼 경로(C:\instantclient_19_3)를 설정한다</p>
+<ul>
+<li>여기까지 할 경우 툴의 실행 자체는 문제 없어진다. 이후의 설정은 TNS 셋팅(tnsnames.ora)을 불러오고 클라이언트의 언어 설정을 위한 것이다.</li>
+</ul>
+</li>
+<li><p>시스템 환경변수에 아래 내용을 추가한다.</p>
+<ul>
+<li>ORACLE_HOME = C:\instantclient_19_3</li>
+<li>TNS_ADMIN = C:\oraclexe\app\oracle\product\11.2.0\server\network\ADMIN<br>(tnsnames.ora 파일이 위치해 있는 디렉토리)</li>
+<li>NLS_LANG = AMERICAN_AMERICA.US7ASCII (DB 서버의 캐릭터셋과 일치시킨다)</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>출처 :</p>
+<p><a href="http://m.blog.naver.com/ehcibear314/220271947239" target="_blank" rel="noopener">http://m.blog.naver.com/ehcibear314/220271947239</a><br><a href="http://epr.pe.kr/wordpress/?p=451" target="_blank" rel="noopener">http://epr.pe.kr/wordpress/?p=451</a></p>
+</blockquote>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-07-15T23:36:46.000Z">2019-07-16</time>
                 
                 <div class="level-item">
@@ -694,7 +760,7 @@
                         포스트
                     </p>
                     <p class="title has-text-weight-normal">
-                        11
+                        13
                     </p>
                 </div>
             </div>
@@ -714,7 +780,7 @@
                         태그
                     </p>
                     <p class="title has-text-weight-normal">
-                        9
+                        11
                     </p>
                 </div>
             </div>
@@ -849,7 +915,7 @@
                 <span class="level-item">Database</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Manual/">
@@ -865,7 +931,7 @@
                 <span class="level-item">Programming</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/Programming/Web/">
@@ -873,7 +939,7 @@
                 <span class="level-item">Web</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li></ul></li>
             </ul>
@@ -887,7 +953,7 @@
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/tags/AWS/" style="font-size: 15px;">AWS</a> <a href="/tags/Architecture/" style="font-size: 10px;">Architecture</a> <a href="/tags/Book/" style="font-size: 20px;">Book</a> <a href="/tags/Frontend/" style="font-size: 10px;">Frontend</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Oracle-Database/" style="font-size: 15px;">Oracle Database</a> <a href="/tags/Programming-level/" style="font-size: 10px;">Programming level</a> <a href="/tags/Sort-Algorithm/" style="font-size: 10px;">Sort Algorithm</a> <a href="/tags/Spring-Framework/" style="font-size: 10px;">Spring Framework</a>
+        <a href="/tags/AWS/" style="font-size: 15px;">AWS</a> <a href="/tags/Architecture/" style="font-size: 10px;">Architecture</a> <a href="/tags/Book/" style="font-size: 20px;">Book</a> <a href="/tags/Clustering/" style="font-size: 10px;">Clustering</a> <a href="/tags/Frontend/" style="font-size: 10px;">Frontend</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Oracle-Database/" style="font-size: 20px;">Oracle Database</a> <a href="/tags/Programming-level/" style="font-size: 10px;">Programming level</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Sort-Algorithm/" style="font-size: 10px;">Sort Algorithm</a> <a href="/tags/Spring-Framework/" style="font-size: 10px;">Spring Framework</a>
     </div>
 </div>
 
@@ -901,6 +967,44 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/Database/190716 - Oracle - SQLTools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Oracle - SQLTools 설치">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-30T08:36:46.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/Database/190716 - Oracle - SQLTools/" class="has-link-black-ter is-size-6">Oracle - SQLTools 설치</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Database/">Database</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/Web/190730 - Session/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="작성중) Session / Session Clustering">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-30T00:05:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/Web/190730 - Session/" class="has-link-black-ter is-size-6">작성중) Session / Session Clustering</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Programming/">Programming</a> / <a class="has-link-grey -link" href="/categories/Programming/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -959,44 +1063,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/07/25/Books/190725 - Git for Humans/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="(읽는 중) Git for Humans - 인간다운 Git (2016, David Demaree)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-25T09:41:46.000Z">2019-07-25</time></div>
-                    <a href="/2019/07/25/Books/190725 - Git for Humans/" class="has-link-black-ter is-size-6">(읽는 중) Git for Humans - 인간다운 Git (2016, David Demaree)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Books/">Books</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/07/23/Cloud/190723 - Cloud - Architecture/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Cloud - Architecture">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-23T02:06:46.000Z">2019-07-23</time></div>
-                    <a href="/2019/07/23/Cloud/190723 - Cloud - Architecture/" class="has-link-black-ter is-size-6">Cloud - Architecture</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Cloud/">Cloud</a> / <a class="has-link-grey -link" href="/categories/Cloud/AWS/">AWS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1015,7 +1081,7 @@
                     <span class="level-item">7월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -1055,6 +1121,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Clustering/">
+                        <span class="tag">Clustering</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Frontend/">
                         <span class="tag">Frontend</span>
                         <span class="tag is-grey">1</span>
@@ -1071,13 +1144,20 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Oracle-Database/">
                         <span class="tag">Oracle Database</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Programming-level/">
                         <span class="tag">Programming level</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Session/">
+                        <span class="tag">Session</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1121,6 +1201,44 @@
         
         <article class="media">
             
+            <a href="/2019/07/30/Database/190716 - Oracle - SQLTools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Oracle - SQLTools 설치">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-30T08:36:46.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/Database/190716 - Oracle - SQLTools/" class="has-link-black-ter is-size-6">Oracle - SQLTools 설치</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Database/">Database</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/Web/190730 - Session/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="작성중) Session / Session Clustering">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-30T00:05:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/Web/190730 - Session/" class="has-link-black-ter is-size-6">작성중) Session / Session Clustering</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Programming/">Programming</a> / <a class="has-link-grey -link" href="/categories/Programming/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/07/29/Web/190729 - Frontend Levels/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Frontend Levels">
@@ -1176,44 +1294,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/07/25/Books/190725 - Git for Humans/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="(읽는 중) Git for Humans - 인간다운 Git (2016, David Demaree)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-25T09:41:46.000Z">2019-07-25</time></div>
-                    <a href="/2019/07/25/Books/190725 - Git for Humans/" class="has-link-black-ter is-size-6">(읽는 중) Git for Humans - 인간다운 Git (2016, David Demaree)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Books/">Books</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/07/23/Cloud/190723 - Cloud - Architecture/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Cloud - Architecture">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-23T02:06:46.000Z">2019-07-23</time></div>
-                    <a href="/2019/07/23/Cloud/190723 - Cloud - Architecture/" class="has-link-black-ter is-size-6">Cloud - Architecture</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Cloud/">Cloud</a> / <a class="has-link-grey -link" href="/categories/Cloud/AWS/">AWS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1232,7 +1312,7 @@
                     <span class="level-item">7월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -1272,6 +1352,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Clustering/">
+                        <span class="tag">Clustering</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Frontend/">
                         <span class="tag">Frontend</span>
                         <span class="tag is-grey">1</span>
@@ -1288,13 +1375,20 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Oracle-Database/">
                         <span class="tag">Oracle Database</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Programming-level/">
                         <span class="tag">Programming level</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Session/">
+                        <span class="tag">Session</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

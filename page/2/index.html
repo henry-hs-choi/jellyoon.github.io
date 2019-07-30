@@ -140,6 +140,821 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-10T06:55:00.000Z">2019-07-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Programming/">Programming</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Programming/Web/">Web</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    33분 read (About 4914 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/07/10/Web/190710 - Web Lecture Note/">Lecture Note - from java to spring</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="특징"><a href="#특징" class="headerlink" title="특징"></a>특징</h2><blockquote>
+<p><code>Write Once, Run Anywhere</code>  </p>
+</blockquote>
+<ul>
+<li>이식성이 상당히 좋다.  </li>
+<li>*.java -&gt; *.class -&gt; interpreter -&gt; output</li>
+<li>자바는 쓰레드 기반이다.</li>
+</ul>
+<h3 id="현장-투입시-하는-것"><a href="#현장-투입시-하는-것" class="headerlink" title="현장 투입시 하는 것"></a><code>현장 투입시 하는 것</code></h3><blockquote>
+<ol>
+<li>빌드 자동화 툴(Maven) 선정</li>
+<li>통합개발환경 설치</li>
+<li>형상관리 툴(git)</li>
+<li>지속적 통합(Jenkins)</li>
+</ol>
+</blockquote>
+<h3 id="JDK란"><a href="#JDK란" class="headerlink" title="JDK란"></a><code>JDK</code>란</h3><ul>
+<li>개발 툴</li>
+</ul>
+<h3 id="Class-란"><a href="#Class-란" class="headerlink" title="Class 란"></a><code>Class</code> 란</h3><ul>
+<li>설계도.</li>
+</ul>
+<h3 id="객체지향이란"><a href="#객체지향이란" class="headerlink" title="객체지향이란"></a><code>객체지향</code>이란</h3><blockquote>
+<p>Real World의 Object -&gt; 추상화 (Class)</p>
+<ol>
+<li>명사적 특징 -&gt; 변수</li>
+<li>동사적 특징 -&gt; 메서드</li>
+</ol>
+<p><code>클래스는 객체가 아니다!</code><br>클래스로부터 실행환경에서 객체를 추출해 낼 수 있다.  </p>
+<ul>
+<li><code>Instance</code>가 객체다.</li>
+</ul>
+<p>클래스에 정의된 변수와 메서드는 클래스가 아닌 인스턴스의 소유다.  응집력은 높아야 하며 결합도는 낮춰야 한다.<br>클래스란 인스턴스를 생성하기 위한 하나의 템플릿 (설계도면)</p>
+</blockquote>
+<ul>
+<li>화면을 담당하는 presentation layer의 클래스가 Business logic을 포함하면 안된다.</li>
+<li>Presentation -&gt; Business logic -&gt; Data access(Persistence)</li>
+</ul>
+<h3 id="클래스"><a href="#클래스" class="headerlink" title="클래스"></a><strong><code>클래스</code></strong></h3><ul>
+<li>클래스 내부에 public static void main을 가지고 있어야 인터프리트가 가능하다.</li>
+<li>main을 갖고있지 않는 클래스는 인스턴스를 만들기 위해서 존재한다.</li>
+</ul>
+<h4 id="1-변수"><a href="#1-변수" class="headerlink" title="1. 변수"></a><code>1. 변수</code></h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">접근지정자 데이터타입 변수명;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터 타입 : 숫자형, 문자형, 논리형</li>
+</ul>
+<blockquote>
+<p>byte, short, <code>int</code>, long / float, <code>double</code> / <code>char</code> / <code>boolean</code></p>
+</blockquote>
+<ul>
+<li>기본 : 값을 담음 (내부적으로는 값을 담는다)</li>
+<li>참조 : 주소값을 담음 (값을 직접적으로 할당받을 수 없음)</li>
+<li>보통 멤버변수는 Critical Section으로 보고 직접 접근 못하도록 가시성을 부여해준다.</li>
+<li><strong>지역변수</strong>는 <strong>메서드</strong>와 라이프사이클을 같이한다.</li>
+<li><strong>전역변수</strong>는 <strong>인스턴스</strong>와 라이프사이클을 같이한다.</li>
+<li><strong>Static 변수</strong>는 <strong>쓰레드</strong>와 라이프사이클을 같이한다.</li>
+<li>지역변수는 선언 후 초기화 하지 않으면 문법적으로 에러가 발생한다.</li>
+</ul>
+<h4 id="2-메서드"><a href="#2-메서드" class="headerlink" title="2. 메서드"></a><code>2. 메서드</code></h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">접근지정자 리턴타입 메서드이름(파라메타_타입)&#123;</span><br><span class="line">    업무로직</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>public</code> / protected / default / <code>private</code></p>
+</blockquote>
+<h4 id="3-생성자"><a href="#3-생성자" class="headerlink" title="3. 생성자"></a><code>3. 생성자</code></h4><blockquote>
+<p>Like a Method</p>
+</blockquote>
+<ul>
+<li>메서드가 아니다.</li>
+</ul>
+<h4 id="VO-ENTITY-DTO"><a href="#VO-ENTITY-DTO" class="headerlink" title="VO / ENTITY / DTO"></a><code>VO / ENTITY / DTO</code></h4><ul>
+<li>VO : Back-end단에서 넘어운 데이터</li>
+<li>DTO : Front-end에서 넘어온 데이터 (Data Transfer Object)</li>
+</ul>
+<blockquote>
+<p>정형화 되어있지는 않으나 input parameter를 받아올 때 특정 멤버변수를 제외하고 null로 받아서 객체로 넘겨준다면 dto를 사용한다.<br>또한, parameter의 수가 많지 않다면 map에 담아서 컨트롤러까지 넘겨주기도 한다.</p>
+</blockquote>
+<h4 id="레이어"><a href="#레이어" class="headerlink" title="레이어"></a><code>레이어</code></h4><blockquote>
+<p>Presentation Layer<br>Business Layer<br>Persistence Layer</p>
+</blockquote>
+<ul>
+<li>각 레이어는 각각의 class를 갖는다.</li>
+<li>Persistence Layer는 DB와 통신한다.<ul>
+<li>ResultSet을 Instance로 만들어야 한다.</li>
+<li>1개의 레코드 = 1개의 인스턴스</li>
+<li>즉, 현장에서는 테이블 스키마와 동일한 VO를 만드는 경우가 많다.</li>
+<li>Collection API(ex. 배열)에 담아서 다음 layer에 전달한다</li>
+</ul>
+</li>
+<li><strong>각 클래스의 관계를 명확하게 이해하자!</strong></li>
+</ul>
+<blockquote>
+<p>Controller : Presentation Layer (받는 곳)<br>View : Presentation Layer (보여주는 곳)<br>Model : Business &amp; Persistence Layer</p>
+</blockquote>
+<h4 id="생성자"><a href="#생성자" class="headerlink" title="생성자"></a><code>생성자</code></h4><blockquote>
+<p>new 연산자 뒤에서만 사용이 가능하다<br>멤버변수에 대한 초기화를 담당한다<br>기본생성자 / 스페셜 생성자  </p>
+<ul>
+<li>스페셜 생성자는 기본 생성자를 먼저 만들고 쓰는게 좋다</li>
+</ul>
+</blockquote>
+<h4 id="오버로딩"><a href="#오버로딩" class="headerlink" title="오버로딩"></a><code>오버로딩</code></h4><blockquote>
+<p>매개변수의 타입과 갯수가 달라야 한다<br>오버로딩된 메서드의 업무 로직은 동일해야 한다</p>
+</blockquote>
+<h3 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a><code>JVM</code></h3><blockquote>
+<p>JVM은 메모리 섹터로 이루어져 있다.<br>다섯개의 메모리 영역이 있다.</p>
+<ol>
+<li>Static / Method Area</li>
+<li>Stack  </li>
+<li>Heap - Literal(Constant) Pool</li>
+</ol>
+</blockquote>
+<h4 id="실행-순서"><a href="#실행-순서" class="headerlink" title="실행 순서"></a><code>실행 순서</code></h4><blockquote>
+<p><em>javac ~.java</em><br><em>java ~</em></p>
+<ol>
+<li>실행 할 경우 각 클래스에서 Static 키워드가 붙은 메서드와 변수, 일반 메서드가 Static / Method Area에 올라온다.  </li>
+<li><em>public static void main(String[] args)</em> 메서드를 찾아서 Execution Stack에 올린다</li>
+</ol>
+</blockquote>
+<h4 id="가비지-콜렉터"><a href="#가비지-콜렉터" class="headerlink" title="가비지 콜렉터"></a><code>가비지 콜렉터</code></h4><blockquote>
+<p>참조가 끊어진 객체들이 쌓여서 메모리 가용성이 떨어지면 GC 쓰레드가 작동한다.<br>finalize() 메서드를 오버라이드해서 명시적으로 호출할 수는 있으나 그 실행 시점은 랜덤이다.</p>
+</blockquote>
+<h4 id="리터럴"><a href="#리터럴" class="headerlink" title="리터럴"></a><code>리터럴</code></h4><blockquote>
+<p>변수에 할당되는 값<br>문자(‘’), 문자열(“”), 정수, 실수, 논리(true / false)</p>
+</blockquote>
+<h4 id="파라메터-매개변수"><a href="#파라메터-매개변수" class="headerlink" title="파라메터 / 매개변수"></a><code>파라메터 / 매개변수</code></h4><blockquote>
+<p>Parameter : 전달되는 값<br>Argument : 함수에 정의된 변수</p>
+<p>Heap에 매개변수 값이 들어간다. (Literal Value)</p>
+</blockquote>
+<h4 id="Has-A-Use-A"><a href="#Has-A-Use-A" class="headerlink" title="Has-A / Use-A"></a><code>Has-A / Use-A</code></h4><blockquote>
+<p>Has-A<br>객체의 라이프사이클이 나와 같을 때<br>Use-A<br>객체의 라이프사이클이 나와 같지 않을 때</p>
+</blockquote>
+<h4 id="객체지향의-특징-은닉화-상속-다형성-추상화"><a href="#객체지향의-특징-은닉화-상속-다형성-추상화" class="headerlink" title="객체지향의 특징 - 은닉화 / 상속 / 다형성 / 추상화"></a>객체지향의 특징 - <code>은닉화 / 상속 / 다형성 / 추상화</code></h4><blockquote>
+<ul>
+<li><code>은닉화</code> : 객체의 타입 등 정보를 감출 수 있어야 함. (추상화와 연계되어 있음)  <ul>
+<li>Information Hiding</li>
+</ul>
+</li>
+<li><code>상속</code> : super(부모클래스) / this.<ul>
+<li>부모는 자식에게 필요로 되어지는 공통의 기능들을 내려준다. <strong>(IS-A 관계)</strong><br><em>인어공주 IS-A 사람</em></li>
+<li>내려갈수록 클래스는 <strong>구체화</strong>, 올라갈수록 클래스는 <strong>일반화(추상화)</strong></li>
+<li>타입 : 부모 &gt; 자식</li>
+<li>포함관계 : 부모 &gt; 자식</li>
+<li>자바는 컴파일 언어 -&gt; 컴파일 타임에 Data Type을 체크한다.</li>
+<li>WEB FRAMEWORK들은 코드 상에 extends, implements 가 없더라도 그러한 역할을 해준다는 것을 알자.</li>
+</ul>
+</li>
+<li><code>다형성</code> : 관리의 효율성을 위해서<ol>
+<li>객체의 다형성</li>
+<li>메서드의 다형성 (오버로딩 / <em>오버라이딩</em>)</li>
+<li>매개변수의 다형성</li>
+</ol>
+<ul>
+<li>항상 <strong>캐스팅</strong>을 생각하자</li>
+</ul>
+</li>
+<li><code>추상화</code> : 구현을 감춘다.<ul>
+<li>Implementation Hiding</li>
+<li>추상클래스 / 인터페이스</li>
+<li>실 타입을 숨기고, 명세는 동일하지만 그 구현을 감춘다</li>
+<li>부모 클래스는 인스턴스를 생성하는 경우가 많지 않다.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="배열"><a href="#배열" class="headerlink" title="배열"></a><code>배열</code></h4><blockquote>
+<ul>
+<li>객체로 취급  </li>
+<li>fixed size  </li>
+<li>same type  </li>
+<li>index 0 부터  </li>
+</ul>
+<p>다형성을 적용하여 배열에 여러 타입의 데이터를 넣었을 경우 런타임시점에 instanceof 키워드로 리얼타입을 체크한다</p>
+</blockquote>
+<h5 id="반복을-수행하는-방법"><a href="#반복을-수행하는-방법" class="headerlink" title="반복을 수행하는 방법"></a><code>반복을 수행하는 방법</code></h5><ol>
+<li>for-loop</li>
+<li>enhanced for loop (for-each) : JIT compiler에 의한 내부순환자</li>
+<li>iterator : 가장 빠름</li>
+</ol>
+<h4 id="파일입출력"><a href="#파일입출력" class="headerlink" title="파일입출력"></a><code>파일입출력</code></h4><h4 id="추상클래스-인터페이스"><a href="#추상클래스-인터페이스" class="headerlink" title="추상클래스 / 인터페이스"></a><code>추상클래스 / 인터페이스</code></h4><blockquote>
+<ul>
+<li>공통점 : 표준의 역할을 하기 위함  </li>
+<li>차이점 : 객체 생성이 되지 않음</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>추상클래스</strong> : 변수 + 메서드를 포함하고 있음<ul>
+<li>자식클래스는 모든 추상메서드를 오버라이드 해야만 인스턴스 생성 가능</li>
+<li>모든 서브타입이 기능을 공유하고, 특정 기능은 동일한 구현을 공유해야 할 때 추상클래스를 쓰면 용이하다.</li>
+</ul>
+</li>
+<li><strong>인터페이스</strong> : 상수(잘 안씀) + 추상 메서드<ul>
+<li>다중 구현 가능</li>
+<li>상속받는 클래스는 인터페이스의 모든 추상메서드를 오버라이드 해야함</li>
+</ul>
+</li>
+</ul>
+<h4 id="ENUM"><a href="#ENUM" class="headerlink" title="ENUM"></a><code>ENUM</code></h4><blockquote>
+<p>열거형 데이터 타입<br><em>public static final</em> 로 상수를 선언했을 때, 다른 사용자가 악의적으로 엉뚱한 상수값을 넣는 것을 방지 할 수 있음</p>
+</blockquote>
+<h4 id="디자인패턴"><a href="#디자인패턴" class="headerlink" title="디자인패턴"></a><code>디자인패턴</code></h4><blockquote>
+<ul>
+<li><code>싱글톤 패턴</code> : 무분별한 객체 생성을 막기 위해 필요  </li>
+<li><code>커맨드 패턴</code></li>
+<li><code>팩토리 패턴</code></li>
+</ul>
+</blockquote>
+<h4 id="빈-Bean"><a href="#빈-Bean" class="headerlink" title="빈(Bean)"></a><code>빈(Bean)</code></h4><blockquote>
+<ul>
+<li>개발자가 생성하지 않고 생성된 객체</li>
+<li>싱글톤의 문제 : Bottleneck<ul>
+<li>Bean 객체의 생성을 Singleton이 아닌 <strong>Request시 마다</strong>로 할 수 있음 (WAS)<ul>
+<li>Activated / Deactivate 할 수 있음</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="예외-Exception"><a href="#예외-Exception" class="headerlink" title="예외 (Exception)"></a><code>예외 (Exception)</code></h4><blockquote>
+<p>Object &lt;- Throwable &lt;- Exception</p>
+<ul>
+<li>Compile</li>
+<li>Runtime</li>
+</ul>
+<p>T-C-F-T-C 형식을 즐겨 쓴다<br>결과에 대해 명확히 이해한 후에 Throws를 할지 T-C를 할지 결정해야 한다.<br>T-F 구문이 있을 수 있다 (내가 직접 예외를 던질 경우(<em>throws</em>)에 사용한다)</p>
+</blockquote>
+<h4 id="Collection-API"><a href="#Collection-API" class="headerlink" title="Collection API"></a><code>Collection API</code></h4><blockquote>
+<ul>
+<li>fixed size가 아닌 배열.</li>
+<li>Object만 담을 수 있다.</li>
+<li>Java 5 버전 이후에는 auto-Boxing이 되므로 int도 담을 수 있다.</li>
+<li>Same Type이 아니어도 된다.</li>
+<li>size() 메서드를 이용해서 크기를 알 수 있다.</li>
+<li>Index를 쓸 필요가 없다.</li>
+</ul>
+<ol>
+<li>List - Vector, Linked, ArrayList<ul>
+<li>중복 허용, Natural Order</li>
+</ul>
+</li>
+<li>Set - HashSet<ul>
+<li>중복 x, 순서 x</li>
+</ul>
+</li>
+<li>Map - HashMap(key, value)<ul>
+<li>중복 x, 순서 x</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<h4 id="Vector-ArrayList의-차이-쓰레드"><a href="#Vector-ArrayList의-차이-쓰레드" class="headerlink" title="Vector / ArrayList의 차이 쓰레드"></a><code>Vector / ArrayList의 차이 쓰레드</code></h4><blockquote>
+<p>WAS 서버가 T-S를 보장한다.<br>그렇기 때문에 웹에서는 멤버변수를 잘 쓰지 않는다.</p>
+</blockquote>
+<h4 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a><code>Stream</code></h4><blockquote>
+<ul>
+<li>데이터가 지나다닐 수 있는 통로.<br>System.out.printl() &lt;-&gt; System.in.read()</li>
+</ul>
+<p><em>java.io.*</em></p>
+<ol>
+<li>Byte 형식으로 입출력하는 스트림 (한글을 사용하면 깨진다)<ul>
+<li>xxxStream</li>
+</ul>
+</li>
+<li>Character 형식으로 입출력하는 스트림<ul>
+<li>xxxReader / xxxWriter</li>
+</ul>
+</li>
+<li>Byte Stream을 활용한 객체 스트림<ul>
+<li>ObjectInput/OutputStream</li>
+</ul>
+</li>
+</ol>
+<p>콘솔 입출력, 파일 입출력, 원격 통신</p>
+<p>자바에서 객체를 전송할 때는 Serializable Interface를 Implements 해야 함.<br>Marker Interface : 인터페이스이지만 추상메서드가 없음.<br>객체를 ByteStream으로 보내고 받음.<br>Stream 자체와 <em>transient</em> 키워드가 붙은 변수는 직렬화가 되지 않는다.</p>
+</blockquote>
+<h4 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a><code>Thread</code></h4><blockquote>
+<p><strong>구현 방식</strong></p>
+<ol>
+<li>Thread Class</li>
+<li>Runnable Interface  </li>
+</ol>
+<ul>
+<li><em>run()</em> : Thread의 수행 업무</li>
+<li>쓰레드는 <strong>동시성</strong>과 <strong>제어</strong>가 중요한 관점</li>
+</ul>
+</blockquote>
+<p><img src="https://lh4.googleusercontent.com/oR0_liUxjMnfgFS-fSuc0x2vCCPLQ0Vdw6w2rBVGloaE_84tRNprqNJEJiyI1unMY8Vpj2CDK9GiQGy03_RmteRz-aM31iIQcZsVZhIH2cLrne_5nY9miXKDmQqEHdY60_WopC0" alt="Thread Life Cycle"><br>[출처 : <a href="https://www.javamadesoeasy.com/2015/03/thread-states-thread-life-cycle-in-java.html" target="_blank" rel="noopener">https://www.javamadesoeasy.com/2015/03/thread-states-thread-life-cycle-in-java.html</a>]</p>
+<blockquote>
+<p><strong>스케쥴링 방식</strong></p>
+<ol>
+<li>Time Slice 방식 (Ordering X 랜덤)</li>
+<li>Turn Around 방식 (Ordering O 메모리 순위로)</li>
+</ol>
+<p><strong>Method</strong></p>
+<ul>
+<li><em>join()</em> : 데몬쓰레드가 기다림</li>
+<li><em>sleep()</em> : 쓰레드를 재워둠</li>
+<li><em>wait()</em>, <em>notify()</em> : Syncronized Block에서만 사용 가능</li>
+<li><em>notifyAll()</em> : 모든 쓰레드가 깨어남</li>
+<li><em>threadIsAlive()</em>, <em>currentThread()</em> : 현재 동작하는 쓰레드를 알 수 있음</li>
+<li><em>interrupt()</em> : 쓰레드를 킬함</li>
+</ul>
+</blockquote>
+<h4 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a><code>JDBC</code></h4><blockquote>
+<ol>
+<li>Driver loading</li>
+<li>Connection (url, user, pwd)</li>
+<li>Statement (SQL)</li>
+<li>실행<ul>
+<li><strong>excuteQuery()</strong> : resultSet -&gt; select</li>
+<li><strong>excuteUpdate()</strong> : int -&gt; insert / update / delete</li>
+</ul>
+</li>
+<li>ResultSet 핸들링</li>
+<li>Close()</li>
+</ol>
+</blockquote>
+<ul>
+<li>위 절차는 모두 Exception을 발생시킨다.<ul>
+<li>try ~ catch 가 필요하다.</li>
+</ul>
+</li>
+<li>이러한 것들을 모두 감싸는 프레임워크가 myBatis.</li>
+<li>connection() ~ close()의 작업이 반복적으로 실행되면 오버헤드가 심해지므로 현업에서는 Connection Pool을 사용한다.</li>
+</ul>
+<h4 id="백엔드의-레이어"><a href="#백엔드의-레이어" class="headerlink" title="백엔드의 레이어"></a><code>백엔드의 레이어</code></h4><blockquote>
+<ul>
+<li>Presentation Layer<ol>
+<li><strong>Servlet.java</strong> <code>(Controller)</code><ul>
+<li>java + html</li>
+<li>분기하는 것이 Controller의 역할이다.</li>
+</ul>
+</li>
+<li><strong>xxx.jsp</strong> <code>(View)</code><ul>
+<li>html + java</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Business Layer <code>(Model)</code><ul>
+<li>xxxServiceImpl</li>
+</ul>
+</li>
+<li>Persistence Layer <code>(Model)</code><ul>
+<li>xxxImpl</li>
+</ul>
+</li>
+<li>Front-Controller<ul>
+<li>Pacade Pattern / Delegate Pattern</li>
+<li>request를 Factory로 넘겨서 Controller를 생성함</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="Web"><a href="#Web" class="headerlink" title="Web"></a><code>Web</code></h4><blockquote>
+<ol>
+<li>Servlet : Controller의 역할</li>
+<li>JSP : View의 역할</li>
+</ol>
+</blockquote>
+<h4 id="Web-Server-Container-java-실행환경-WAS"><a href="#Web-Server-Container-java-실행환경-WAS" class="headerlink" title="Web Server + Container(java 실행환경) = WAS"></a><code>Web Server + Container(java 실행환경) = WAS</code></h4><blockquote>
+<ul>
+<li>Container<ul>
+<li>Catalina : Servlet 동작</li>
+<li>Jasper : JSP 동작</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="Dynamic-Web-Project"><a href="#Dynamic-Web-Project" class="headerlink" title="Dynamic Web Project"></a><code>Dynamic Web Project</code></h4><blockquote>
+<p><em>http: //server_ip/contextName/servletName or xxxxx.jsp</em><br><em>http: //server_ip/contextName/xxxxx?key=value&amp;key=value<br>URL or URI ? queryString</em></p>
+<ul>
+<li>lib : 라이브러리들</li>
+<li>web.xml : Deploy Descriptor</li>
+<li>build : Output</li>
+<li>Java Resources<ul>
+<li>src/main/java : 자바 파일</li>
+<li>src/resources : xml 파일, sql 파일 등</li>
+<li>src/test : 테스트 파일 (ex. jUnit)</li>
+</ul>
+</li>
+</ul>
+<p>Servlet &lt;- <strong>GenericServlet</strong> &lt;- <strong>HttpServlet</strong>  </p>
+<p><strong><code>Servlet의 메서드 3개</code></strong></p>
+<ol>
+<li><em>init()</em></li>
+<li><em>service()</em><ul>
+<li><em>doGet()</em></li>
+<li><em>doPost()</em></li>
+</ul>
+</li>
+<li><em>destory()</em> : re-compile 될 때 등 사용. 보통 외부자원과의 연결을 끊어주는 역할을 수행함.</li>
+</ol>
+<p><strong><code>HttpServlet &lt;- MyServlet</code></strong><br>위의 3개의 메서드를 오버라이딩해서 사용한다.</p>
+<ul>
+<li>최초의 request가 들어왔을 때 객체가 생성(LazyLoading)되고, 이후에는 <em>init()</em> 이후에 thread만 매번 생성된다.  </li>
+<li>일반 xxx.java는 Request, Response 객체를 핸들링 할 수 없으나, Dispatcher Servlet(Front-Controller)로 부터 Delegate 함으로써 Controller 역할을 수행 할 수 있게 된다.  </li>
+<li>각 Controller는 사용자 Request URL을 매핑해서 사용한다.  </li>
+</ul>
+<p><strong><code>데이터 Validation Check</code></strong></p>
+<ul>
+<li>데이터에 대한 유효성(Validation) 체크는 네트워크 트래픽을 낭비하지 않기 위해 프론트엔드에서 Script로 하는 것이 좋다.</li>
+<li>백엔드에서도 Filter를 이용해서 유효성을 체크해야 한다.</li>
+<li>즉, 컨트롤러의 실질적인 일이란 객체를 만들어서 서비스에 맡기는 것이다. (Model과 dependency를 갖는 것이다.)</li>
+</ul>
+</blockquote>
+<h4 id="화면-분기-방식"><a href="#화면-분기-방식" class="headerlink" title="화면 분기 방식"></a><code>화면 분기 방식</code></h4><blockquote>
+<ol>
+<li>redirect</li>
+<li>forward</li>
+</ol>
+<p>Forward라면 Request에 데이터를 심어서 Response에서 그 데이터를 사용할 수 있게끔 한다.<br>Redirect 하는 상황에서 데이터를 공유하려면 Request가 아닌 Session에 데이터를 심어야 한다.</p>
+</blockquote>
+<h4 id="Java와-jsp간-데이터-교환-방법"><a href="#Java와-jsp간-데이터-교환-방법" class="headerlink" title="Java와 jsp간 데이터 교환 방법"></a><code>Java와 jsp간 데이터 교환 방법</code></h4><blockquote>
+<p>컨테이너 내부에 객체를 공유할 수 있는 공간이 있음</p>
+<p><strong>컨테이너 내부의 4가지 Scope 영역</strong></p>
+<ul>
+<li><strong>Application Context</strong> : 컨테이너 내부에서 동작하는 객체를 유지 (server가 shutdown 되기 전까지 - ex. 로그인 중인 사용자의 정보), 가장 넓은 Scope를 가진다.</li>
+<li><strong><code>Session Context</code></strong> : Last Access Time으로부터 일정 기간동안 유지된다.</li>
+<li><strong><code>Request</code></strong> : Request는 해당 요청이 처리되면 데이터가 사라진다. (<em>Model(@ModelAttribute)</em>, <em>RedirectAttributes</em>)</li>
+<li><strong>Page</strong> : 자기 페이지 내부에서만 작동하는 Scope. 제일 작은 범위.</li>
+</ul>
+<p>서블릿이 자체적으로 JSP에 데이터를 던져줄 수 없으므로, Servlet이 어딘가에 심어놓은(<em>setAttribute()</em>) 데이터를 JSP가 가져오는(<em>getAttribute()</em>) 것이다.  </p>
+<p>JSP에서 해당 데이터를 이용하기 위해서는 JAVA의 객체를 사용해야 하므로, JAVA의 코드를 JSP(HTML) 내에 삽입하기 위한 태그들이 존재하게 되는 것이다.</p>
+<ul>
+<li><p>자동로그인의 경우는 Cookie를 이용해서 백엔드에서 Interceptor로 작동된다.</p>
+</li>
+<li><p>프론트엔드에서 시각화 하는 방법은 script를 사용한다. 즉, JAVA의 객체를 script가 가져다 쓸 수 있게끔 해야 하기 때문에 JSON과 같은 방식이 필요하다.</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a><code>HTML</code></h4><blockquote>
+<p>HTML에서 서버와 통신하는 방법은 3개가 있다.</p>
+<ol>
+<li><strong><em>a</em> tag</strong><ul>
+<li>get 방식</li>
+</ul>
+</li>
+<li><strong><em>form</em> tag</strong><ul>
+<li>method 속성으로 action의 방식을 설정 가능</li>
+<li><strong><em>input</em></strong> tag<ul>
+<li>name 속성에 값을 담아서 넘긴다.</li>
+<li>현업에서는 일반적으로 name과 id의 이름을 동일하게 준다.</li>
+<li><strong>name Attribute, Table Column, DTO Field는 동일하게 주어야 한다</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>AJAX</strong></li>
+</ol>
+</blockquote>
+<h4 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a><code>JSP</code></h4><blockquote>
+<p>JSP에는 기본적으로 4개의 tag가 있다.</p>
+<ul>
+<li><strong>&lt;%@</strong> : Directives tag (지시자)<ol>
+<li>page <em>(import)</em></li>
+<li>include</li>
+<li>taglib</li>
+</ol>
+</li>
+<li><strong>&lt;%!</strong> : Declaration tag (선언문)<ul>
+<li>변수, 메서드 정의</li>
+</ul>
+</li>
+<li><strong>&lt;%</strong> : Scriptlet tag<ul>
+<li>서블릿의 service()와 동일한 역할을 하는 태그</li>
+<li>request, response등 내장객체를 이용한 코딩이 가능해짐</li>
+</ul>
+</li>
+<li><strong>&lt;%=</strong> : Expression tag<ul>
+<li>출력시 사용.</li>
+<li>semicolon 사용 불가</li>
+</ul>
+</li>
+</ul>
+<p>그러나 위의 태그들을 사용하여 java 코드를 넣을 경우 뷰를 처리하는 JSP 코드가 너무 복잡해지는(이질감이 드는) 문제점이 발생<br>-&gt; <strong>JSTL</strong>, <strong>EL</strong></p>
+</blockquote>
+<h4 id="JSTL-EL"><a href="#JSTL-EL" class="headerlink" title="JSTL + EL"></a><code>JSTL</code> + <code>EL</code></h4><ul>
+<li><strong>EL (Expression Language)</strong> : 내장객체와 속성 값을 가져오기 매우 편함</li>
+</ul>
+<blockquote>
+<ul>
+<li>직접적으로 속성 값을 가져오는 것이 아니고 getter를 사용하여 가져온다.  </li>
+<li>내부에 연산자를 사용할 수 있다.</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>JSTL (JSP Standard Tag Library)</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li><em>jstl/core</em> : 논리적 처리, 변수 지원, 흐름 제어 등의 태그들</li>
+<li><em>jstl/functions</em> : EL에서 사용 가능한 함수 태그들</li>
+</ul>
+</blockquote>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$&#123; param.name &#125;</span><br><span class="line">&lt;c:<span class="hljs-keyword">if</span> test = <span class="hljs-string">"$&#123; testSession ne null &#125;"</span>&gt;</span><br><span class="line">    $&#123; testSession[<span class="hljs-string">"id"</span>] &#125;</span><br><span class="line">    &lt;c:out value=<span class="hljs-string">"&lt;h2&gt;$&#123; testSession.id &#125;&lt;/h2&gt;"</span> escapeXml=<span class="hljs-string">"true"</span> /&gt;</span><br><span class="line">&lt;/c:if&gt;</span><br><span class="line"></span><br><span class="line">&lt;c:<span class="hljs-keyword">if</span> test=<span class="hljs-string">"$&#123;f:length(list) &gt; 0&#125;"</span>&gt;</span><br><span class="line">    &lt;c:forEach <span class="hljs-keyword">var</span>=<span class="hljs-string">"obj"</span> items=<span class="hljs-string">"$&#123;list&#125;"</span>&gt;</span><br><span class="line">        $&#123;obj.id&#125; &lt;br/&gt;</span><br><span class="line">    &lt;/c:forEach&gt;</span><br><span class="line">&lt;/c:if&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="세션과-쿠키"><a href="#세션과-쿠키" class="headerlink" title="세션과 쿠키"></a><code>세션과 쿠키</code></h4><ul>
+<li><strong>세션 (Session)</strong> : 서버에 저장, 객체도 저장 가능</li>
+<li><strong>쿠키 (Cookie)</strong> : 클라이언트에 저장, 문자열만 저장 가능</li>
+</ul>
+<blockquote>
+<p>세션은 공통 업무와 보안 문제를 고려할 때 사용</p>
+</blockquote>
+<h4 id="Script"><a href="#Script" class="headerlink" title="Script"></a><code>Script</code></h4><ul>
+<li>페이지가 멈춰있는 상태에서 (JSP를 문서로 봄) Document를 건드리는 기술<ul>
+<li>ex) 동적인 페이지 구성 / 입력 값에 대한 유효성 체크</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>+</strong> Script를 이용한 서버와의 통신. But, Response가 없음. 응답이 Request에 담겨있다. <strong>(페이지의 Reloading이 발생하지 않음)</strong><br>-&gt; <strong>비동기 통신방식(AJAX)</strong></p>
+<ul>
+<li>XML(복잡) -&gt; JSON</li>
+<li>JAVA의 객체를 Object로 관리하기 위해서는 형식을 맞춰주어야 한다.<ul>
+<li>서버에서 Session/Request Scope에 데이터를 JAVA type으로 심는 방식이 아니고 JSON 형식으로 변경해서 내려주어야 한다.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a><code>JQuery</code></h4><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="hljs-string">"#btn"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">        <span class="hljs-comment">/* console.log(obj);</span></span><br><span class="line"><span class="hljs-comment">        console.log(ary);</span></span><br><span class="line"><span class="hljs-comment">        $("#result").text(obj.id + " " + obj.pwd); */</span></span><br><span class="line">        $.each(ary, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idx, data</span>) </span>&#123;</span><br><span class="line">            $(<span class="hljs-string">"#result"</span>).append(<span class="hljs-string">"&lt;H1&gt;"</span> + obj.id + <span class="hljs-string">" "</span> + obj.pwd+ <span class="hljs-string">"&lt;/H1&gt;"</span>);</span><br><span class="line">            <span class="hljs-comment">// $("#result").html("&lt;H1&gt;" + obj.id + " " + obj.pwd+ "&lt;/H1&gt;");</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a><code>AJAX</code></h4><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-string">"#ajaxBtn"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url         : <span class="hljs-string">"./ajaxCtrl"</span>,</span><br><span class="line">        type        : <span class="hljs-string">"post"</span>,</span><br><span class="line">        data        : &#123; <span class="hljs-attr">maker</span> : $(<span class="hljs-string">"#maker"</span>).val()&#125;,</span><br><span class="line">        dataType    : <span class="hljs-string">"json"</span>,</span><br><span class="line">        success     : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>)</span>&#123;</span><br><span class="line">            alert(obj);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>비동기 방식으로 통신할 때 객체를 넘기면(Response를 넘기지 않으면) MVC를 타지 않는다.<br><em>@ResponseBody</em> 키워드를 사용하면 Jackson 라이브러리가 JSON 형식으로 변환해서 보내준다.</p>
+</blockquote>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/doJSON.sinc"</span>)</span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-meta">@ResponseBody</span> <span class="hljs-function">ProductVO <span class="hljs-title">doJSON</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    ProductVO vo = <span class="hljs-keyword">new</span> ProductVO(<span class="hljs-string">"샘플"</span>, <span class="hljs-number">30000</span>);</span><br><span class="line">    <span class="hljs-keyword">return</span> vo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="주석"><a href="#주석" class="headerlink" title="주석"></a><code>주석</code></h4><ul>
+<li>HTML : &lt;!–</li>
+<li>JSP : &lt;%–<ul>
+<li>클라이언트가 볼 수 없음, 파싱 시 에러 방지</li>
+</ul>
+</li>
+</ul>
+<h4 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a><code>Maven</code></h4><ul>
+<li><a href="https://mvnrepository.com/" target="_blank" rel="noopener">https://mvnrepository.com/</a></li>
+</ul>
+<h4 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a><code>Spring</code></h4><ul>
+<li><strong>Inversion Of Control</strong> (제어의 역행)<ul>
+<li>Dependency Injection</li>
+<li>Dependency Lookup</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Container를 Setting하는 방법</strong></p>
+<ol>
+<li>XML (Schema)</li>
+<li>Annotation</li>
+</ol>
+<ul>
+<li><p>위의 방법들을 이용해서 Ctrl &lt;- Service &lt;- DAO를 Dependency Injection함</p>
+<ol>
+<li>Presentation Layer(Ctrl)의 XML 1개<br><em>servlet-context.xml</em> : resources, views</li>
+<li>Business Layer(Service, DAO)의 XML 1개<br><em>root-context.xml</em> : DB Property 설정, Service/DAO 객체 등록  </li>
+</ol>
+<p>-&gt; 총 2개의 Spring 설정 XML 파일이 생성된다.  </p>
+<ul>
+<li><em>Web.xml</em> : 프로젝트에 대한 환경 설정. context 파일과 Servlet(Front Controller) 등록.  </li>
+</ul>
+<p>-&gt; Factory의 역할을 함</p>
+</li>
+<li><p>Annotation을 사용해 서블릿 등록 가능  </p>
+</li>
+</ul>
+<p>-&gt; 최종적으로 Zero Configuration 지향 가능</p>
+<p><strong>의존성 주입 방법</strong></p>
+<ul>
+<li>@Resource : Java 표준. name으로 식별이 가능함</li>
+<li>@Autowired : Spring. Ambiguity 문제 발생 가능성 (Type Check -&gt; Variable Name Check)<ul>
+<li>@Qualified</li>
+</ul>
+</li>
+<li>@Inject</li>
+</ul>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;   <span class="hljs-tag">&lt;<span class="hljs-name">bean</span>&gt;</span></span><br><span class="line">&gt;       <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span></span><br><span class="line">&gt;       <span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span>&gt;</span></span><br><span class="line">&gt;   <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>-&gt; Setter Injection (Property Injection)</p>
+<p>LookUp(main Class의 흐름) 역시 Spring이 해준다.</p>
+</blockquote>
+<ul>
+<li><strong>AOP</strong></li>
+<li><strong>SpringMVC</strong></li>
+</ul>
+<p><img src="https://t1.daumcdn.net/cfile/tistory/233778375761F13A0C" alt="Spring MVC 흐름"><br>[출처 : <a href="https://iotsw.tistory.com/tag/HandlerMapping" target="_blank" rel="noopener">https://iotsw.tistory.com/tag/HandlerMapping</a>]</p>
+<blockquote>
+<ul>
+<li>web.xml(Deploy Decriptor)에 Dispatcher Servlet을 등록함  </li>
+<li>스키마 기반으로 구성하면 multi-action Controller를 구현할 수 없음 -&gt; Controller Annotation</li>
+<li>Controller는 Request에 대해 화면을 분기해줌  </li>
+<li>servlet-context.xml에 ViewResolver가 등록되어 있으며, annotation-driven으로 Mapper도 등록되어 있음</li>
+<li>root-context.xml이 모델/DAO에 대한 설정을 지니고 있음  </li>
+<li>이 모든 것들이 web.xml에 의해 로드되므로 스프링의 컨테이너가 사용가능해짐</li>
+</ul>
+<p>Client -&gt; <strong>Dispatcher Servlet</strong><br>-&gt; Handler Mapping<br>&lt;-&gt; Controller</p>
+<ul>
+<li>컨트롤러 메서드의 리턴타입은 3개<ul>
+<li>ModelAndView</li>
+<li>String</li>
+<li>Void<ul>
+<li>Request 되는 URI과 같은 JSP를 찾음. (경로 주의)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>-&gt; ViewResolver<br>-&gt; View</p>
+</blockquote>
+<ul>
+<li>기본 페이지 분기는 Forward</li>
+<li>Ctrl의 Parameter는 지정하기 나름</li>
+<li>Model 객체가 Request Scope을 가짐</li>
+</ul>
+<blockquote>
+<p>객체생성에 관련한 Annotation</p>
+<ul>
+<li>@Component</li>
+</ul>
+<ol>
+<li>@Controller</li>
+<li>@Service</li>
+<li>@Repository</li>
+</ol>
+</blockquote>
+<p>xxxMapper 가 하는 일</p>
+<ul>
+<li>xxx-context.xml을 스캔</li>
+<li>@Annotation 스캔</li>
+</ul>
+<h4 id="JUnit"><a href="#JUnit" class="headerlink" title="JUnit"></a><code>JUnit</code></h4><ul>
+<li>모듈 단위테스트를 용이하게 도와주는 라이브러리</li>
+</ul>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="hljs-meta">@ContextConfiguration</span>(locations= &#123;<span class="hljs-string">"file:src/main/webapp/WEB-INF/spring/**/root-context.xml"</span>&#125;)</span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AopMain</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Resource</span>(name=<span class="hljs-string">"serviceTarget"</span>)</span><br><span class="line">    <span class="hljs-keyword">private</span> SincService service;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Test</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">caller</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        String msg = service.sayEcho(<span class="hljs-string">"이거 뭐지요? AOP~~~~"</span>);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="filter-interceptor-AOP"><a href="#filter-interceptor-AOP" class="headerlink" title="filter, interceptor, AOP"></a><code>filter, interceptor, AOP</code></h4><p><img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F9983FB455BB4E5D30C" alt="Filter, Interceptor, AOP"><br>[출처 : <a href="https://goddaehee.tistory.com/154" target="_blank" rel="noopener">https://goddaehee.tistory.com/154</a>]</p>
+<blockquote>
+<ul>
+<li><strong>filter</strong> : Web Container에서 동작, <strong>Servlet 이전</strong><br>사용자의 요청이 post 방식일때만 작동한다.  </li>
+</ul>
+<p>-&gt; get 방식에서는 한글을 가급적 사용하지 않는다.</p>
+<ul>
+<li>ex) 한글 Encoding 작업<ul>
+<li><strong>interceptor</strong> : Dispatcher -&gt; <strong>Controller 이전</strong> (servlet-context)</li>
+</ul>
+</li>
+<li>Request 정보를 지니고 있다가 로그인 후 이용 가능한 장점도 있다.<ul>
+<li><strong>AOP</strong> : <strong>서비스 이전</strong> (root-context)</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>Filter</strong></li>
+</ul>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">filter</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">filter-name</span>&gt;</span>encoding<span class="hljs-tag">&lt;/<span class="hljs-name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="hljs-tag">&lt;/<span class="hljs-name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">init-param</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">param-name</span>&gt;</span>encoding<span class="hljs-tag">&lt;/<span class="hljs-name">param-name</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">param-value</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">param-value</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">init-param</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">filter</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">filter-name</span>&gt;</span>encoding<span class="hljs-tag">&lt;/<span class="hljs-name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/*<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>web.xml</p>
+<ul>
+<li><strong>Interceptor</strong></li>
+</ul>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestInterceptor</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HandlerInterceptorAdapter</span></span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">preHandle</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line"><span class="hljs-comment">//      if(request.getSession().getAttribute("loginUser") == null) &#123;</span></span><br><span class="line"><span class="hljs-comment">//          redirect</span></span><br><span class="line"><span class="hljs-comment">//      &#125;</span></span><br><span class="line">        System.out.println(<span class="hljs-string">"interceptor &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; pre"</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">postHandle</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"interceptor &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; post"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">beans:bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sampleInter"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.sinc.project.interceptor.TestInterceptor"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">interceptors</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">interceptor</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">mapping</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/user/login.sinc"</span>/&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">beans:ref</span> <span class="hljs-attr">bean</span>=<span class="hljs-string">"sampleInter"</span>/&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">interceptor</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">interceptors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>servlet-context.xml</p>
+<ul>
+<li><p><strong>Spring AOP</strong></p>
+<ul>
+<li>AOP 구현 방법 3개<ul>
+<li>POJO Class</li>
+<li>Spring API</li>
+<li>Annotation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>용어 설명</p>
+<ul>
+<li><strong>Aspect</strong> - 공통 관심사항 객체 (ex. 트랜잭션, 로깅 .. )</li>
+<li>JoinPoint - Aspect가 적용되는 지점 (마킹)<ul>
+<li>Argument로 받을 경우 타겟이나 진행 상황 등의 정보를 알 수 있다.</li>
+</ul>
+</li>
+<li><strong>PointCut</strong> - 적용될 Joinpoint (포인트)</li>
+<li><strong>Advice</strong> - before / after-returning / after-throwing / after / around</li>
+<li>Weaving - 어떤 Advice를 어떤 Pointcut에 적용시킬지 Advisor</li>
+</ul>
+</blockquote>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">context:component-scan</span> <span class="hljs-attr">base-package</span>=<span class="hljs-string">"com.sinc.project.**"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">aop:aspectj-autoproxy</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">aop:aspectj-autoproxy</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">&lt;!-- aop --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"loginAspect"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.sinc.project.aop.common.LoginAspect"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"serviceTarget"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.sinc.project.aop.core.SincServiceImpl"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">aop:config</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">aop:pointcut</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">"execution(public * com.sinc.project..*Impl.say*(..))"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"echoing"</span>/&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">aop:aspect</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"beforeAspect"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"loginAspect"</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">aop:before</span> <span class="hljs-attr">pointcut-ref</span>=<span class="hljs-string">"echoing"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"before"</span> /&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">aop:aspect</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>root-context.xml</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Component</span>(<span class="hljs-string">"loginAspect"</span>)</span><br><span class="line"><span class="hljs-meta">@Aspect</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoginAspect</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Before</span>(<span class="hljs-string">"execution(public * com.sinc.project..*Impl.say*(..)    "</span>)</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">before</span><span class="hljs-params">(JoinPoint join)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"aspect &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; before advice"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@AfterThrowing</span>(pointcut = <span class="hljs-string">"execution(public * com.sinc.project..*Impl.say*(..))"</span>, throwing = <span class="hljs-string">"e"</span>)</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">throwing</span><span class="hljs-params">(JoinPoint point, Exception e)</span> </span>&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="동적-쿼리"><a href="#동적-쿼리" class="headerlink" title="동적 쿼리"></a><code>동적 쿼리</code></h4><figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">"map"</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">"board"</span>&gt;</span></span><br><span class="line">    SELECT SEQ, TITLE, WRITER, TO_CHAR(REGDATE, 'RRRR-MM-DD') AS REGDATE, VIEWCNT</span><br><span class="line">    FROM SPRING_BOARD_TBL</span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">where</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">"#&#123;type&#125; == 'title'"</span>&gt;</span></span><br><span class="line">            TITLE LIKE '%' || #&#123;title&#125; || '%'</span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">"#&#123;type&#125; == 'writer'"</span>&gt;</span> </span><br><span class="line">            WRITER LIKE '%' || #&#123;keyword&#125; || '%'</span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">where</span>&gt;</span></span><br><span class="line">    ORDER BY 1 DESC</span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;-- WHERE SALARY &lt;![CDATA[ &gt; ]]&gt; 1000 --&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h5><blockquote>
+<p>배열(2차원), 조건처리, 스트림(파일입출력)</p>
+</blockquote>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-10T01:41:46.000Z">2019-07-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Algorithms/">Algorithms</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3분 read (About 426 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/07/10/Algorithms/190710 - Sort-Algorithm-Exchange-Sort/">Sort Algorithm - Exchange Sort</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="1-교환정렬-Exchange-Sort"><a href="#1-교환정렬-Exchange-Sort" class="headerlink" title="1. 교환정렬 (Exchange Sort)"></a>1. 교환정렬 (Exchange Sort)</h2><h3 id="Algorithm-O-n-2"><a href="#Algorithm-O-n-2" class="headerlink" title="Algorithm : O(n^2)"></a>Algorithm : <em>O(n^2)</em></h3><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exchangeSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, keytype S[])</span></span>&#123;</span><br><span class="line">    index i, j;</span><br><span class="line">    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">for</span> (j = i+<span class="hljs-number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (S[j] &lt; S[i])&#123;</span><br><span class="line">                exchange S[i] and S[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>우선 첫 인덱스에 비교 지점<em>(i)_을 고정해 놓고 끝까지 탐색</em>(j++)_해가며 계속 <strong>교환</strong>한다.</p>
+</li>
+<li><p>루프_(for-i)_가 한 번 수행될 때마다 앞 인덱스부터 최소 값이 오게된다.</p>
+</li>
+</ul>
+<ul>
+<li><p>레벨-2 의 “b &lt; a” 노드는 우측 자식을 갖지 않도록 해야 한다. 앞서 루트에서 이미 해당 연산의 결과를 보였기 때문에, 우측 자식이 있는 경우는 모순인 것이다. 이처럼 가지치기를 해주어야 한다.</p>
+</li>
+<li><p>우리는 이 점에서 “b &lt; a” 연산이 두 번 시행되었다는 사실을 알 수 있다. SubOptimal한 알고리즘의 경우에는 “b &lt; a”가 참이라는 사실을 알 지 못하므로 이와같은 불필요한 연산이 추가로 수행된다.</p>
+</li>
+</ul>
+<h3 id="Every-case-Time-Complexity"><a href="#Every-case-Time-Complexity" class="headerlink" title="Every-case Time Complexity"></a>Every-case Time Complexity</h3><ul>
+<li><p>값을 비교함으로써 정렬을 수행하는 알고리즘이므로, <em>두 숫자 사이의 값 비교</em> 연산이 <strong>Basic Operation</strong>이 된다.</p>
+</li>
+<li><p>정렬할 항목의 수가 <strong>n</strong>이 된다</p>
+</li>
+<li><p>첫 번째 <code>(for-i)</code> 루프에서는 n-1번<em>(2..n)</em> 의 <code>(for-j)</code> 루프를 수행하고, 두 번째 <code>(for-i)</code> 루프에서는 n-2번_(3..n)_의 <code>(for-j)</code> 루프를 수행한다. 이 처럼 <code>for-j</code> 루프의 수행 횟수는 1씩 줄어든다. 이를 모두 더한 것이 시간복잡도가 된다.</p>
+</li>
+<li><p>교환 정렬은 항상 위의 모든 연산을 수행하므로, Every-Case Time Complexity는 (n-1)n / 2이다. 즉, O(n^2)이라고 할 수 있다.</p>
+</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-07-10T01:36:46.000Z">2019-07-10</time>
                 
                 <div class="level-item">
@@ -253,7 +1068,7 @@
                         포스트
                     </p>
                     <p class="title has-text-weight-normal">
-                        11
+                        13
                     </p>
                 </div>
             </div>
@@ -273,7 +1088,7 @@
                         태그
                     </p>
                     <p class="title has-text-weight-normal">
-                        9
+                        11
                     </p>
                 </div>
             </div>
@@ -408,7 +1223,7 @@
                 <span class="level-item">Database</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Manual/">
@@ -424,7 +1239,7 @@
                 <span class="level-item">Programming</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/Programming/Web/">
@@ -432,7 +1247,7 @@
                 <span class="level-item">Web</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li></ul></li>
             </ul>
@@ -446,7 +1261,7 @@
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/tags/AWS/" style="font-size: 15px;">AWS</a> <a href="/tags/Architecture/" style="font-size: 10px;">Architecture</a> <a href="/tags/Book/" style="font-size: 20px;">Book</a> <a href="/tags/Frontend/" style="font-size: 10px;">Frontend</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Oracle-Database/" style="font-size: 15px;">Oracle Database</a> <a href="/tags/Programming-level/" style="font-size: 10px;">Programming level</a> <a href="/tags/Sort-Algorithm/" style="font-size: 10px;">Sort Algorithm</a> <a href="/tags/Spring-Framework/" style="font-size: 10px;">Spring Framework</a>
+        <a href="/tags/AWS/" style="font-size: 15px;">AWS</a> <a href="/tags/Architecture/" style="font-size: 10px;">Architecture</a> <a href="/tags/Book/" style="font-size: 20px;">Book</a> <a href="/tags/Clustering/" style="font-size: 10px;">Clustering</a> <a href="/tags/Frontend/" style="font-size: 10px;">Frontend</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Oracle-Database/" style="font-size: 20px;">Oracle Database</a> <a href="/tags/Programming-level/" style="font-size: 10px;">Programming level</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Sort-Algorithm/" style="font-size: 10px;">Sort Algorithm</a> <a href="/tags/Spring-Framework/" style="font-size: 10px;">Spring Framework</a>
     </div>
 </div>
 
@@ -460,6 +1275,44 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/Database/190716 - Oracle - SQLTools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Oracle - SQLTools 설치">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-30T08:36:46.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/Database/190716 - Oracle - SQLTools/" class="has-link-black-ter is-size-6">Oracle - SQLTools 설치</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Database/">Database</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/Web/190730 - Session/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="작성중) Session / Session Clustering">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-30T00:05:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/Web/190730 - Session/" class="has-link-black-ter is-size-6">작성중) Session / Session Clustering</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Programming/">Programming</a> / <a class="has-link-grey -link" href="/categories/Programming/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -518,44 +1371,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/07/25/Books/190725 - Git for Humans/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="(읽는 중) Git for Humans - 인간다운 Git (2016, David Demaree)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-25T09:41:46.000Z">2019-07-25</time></div>
-                    <a href="/2019/07/25/Books/190725 - Git for Humans/" class="has-link-black-ter is-size-6">(읽는 중) Git for Humans - 인간다운 Git (2016, David Demaree)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Books/">Books</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/07/23/Cloud/190723 - Cloud - Architecture/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Cloud - Architecture">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-23T02:06:46.000Z">2019-07-23</time></div>
-                    <a href="/2019/07/23/Cloud/190723 - Cloud - Architecture/" class="has-link-black-ter is-size-6">Cloud - Architecture</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Cloud/">Cloud</a> / <a class="has-link-grey -link" href="/categories/Cloud/AWS/">AWS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -574,7 +1389,7 @@
                     <span class="level-item">7월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -614,6 +1429,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Clustering/">
+                        <span class="tag">Clustering</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Frontend/">
                         <span class="tag">Frontend</span>
                         <span class="tag is-grey">1</span>
@@ -630,13 +1452,20 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Oracle-Database/">
                         <span class="tag">Oracle Database</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Programming-level/">
                         <span class="tag">Programming level</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Session/">
+                        <span class="tag">Session</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -680,6 +1509,44 @@
         
         <article class="media">
             
+            <a href="/2019/07/30/Database/190716 - Oracle - SQLTools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Oracle - SQLTools 설치">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-30T08:36:46.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/Database/190716 - Oracle - SQLTools/" class="has-link-black-ter is-size-6">Oracle - SQLTools 설치</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Database/">Database</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/Web/190730 - Session/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="작성중) Session / Session Clustering">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-30T00:05:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/Web/190730 - Session/" class="has-link-black-ter is-size-6">작성중) Session / Session Clustering</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Programming/">Programming</a> / <a class="has-link-grey -link" href="/categories/Programming/Web/">Web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/07/29/Web/190729 - Frontend Levels/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Frontend Levels">
@@ -735,44 +1602,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/07/25/Books/190725 - Git for Humans/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="(읽는 중) Git for Humans - 인간다운 Git (2016, David Demaree)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-25T09:41:46.000Z">2019-07-25</time></div>
-                    <a href="/2019/07/25/Books/190725 - Git for Humans/" class="has-link-black-ter is-size-6">(읽는 중) Git for Humans - 인간다운 Git (2016, David Demaree)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Books/">Books</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/07/23/Cloud/190723 - Cloud - Architecture/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Cloud - Architecture">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-23T02:06:46.000Z">2019-07-23</time></div>
-                    <a href="/2019/07/23/Cloud/190723 - Cloud - Architecture/" class="has-link-black-ter is-size-6">Cloud - Architecture</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Cloud/">Cloud</a> / <a class="has-link-grey -link" href="/categories/Cloud/AWS/">AWS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -791,7 +1620,7 @@
                     <span class="level-item">7월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -831,6 +1660,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Clustering/">
+                        <span class="tag">Clustering</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Frontend/">
                         <span class="tag">Frontend</span>
                         <span class="tag is-grey">1</span>
@@ -847,13 +1683,20 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Oracle-Database/">
                         <span class="tag">Oracle Database</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Programming-level/">
                         <span class="tag">Programming level</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Session/">
+                        <span class="tag">Session</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
