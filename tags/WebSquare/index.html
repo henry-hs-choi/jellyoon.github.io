@@ -160,7 +160,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    몇 초 read (About 42 words)
+                    5분 read (About 709 words)
                 </span>
                 
                 
@@ -173,7 +173,182 @@
             
         </h1>
         <div class="content">
-            <h2 id="배경"><a href="#배경" class="headerlink" title="배경"></a>배경</h2><p>본 포스트는 <a href="https://www.youtube.com/watch?v=vBR9CaO9uks&list=PL7a9HhkvOVb00o84m7VpbQfQ-8YUY90ZN" target="_blank" rel="noopener">웹스퀘어 2.0 유튜브 강의</a>를 정리하였습니다.</p>
+            <p>본 포스트는 웹스퀘어 2.0 유튜브 강의를 정리하였습니다.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=vBR9CaO9uks&list=PL7a9HhkvOVb00o84m7VpbQfQ-8YUY90ZN" target="_blank" rel="noopener">기초</a></li>
+<li><a href="https://www.youtube.com/watch?v=wzFkpJp295s&list=PL7a9HhkvOVb2Ny5zWa0RdGhC0ZLtAMWDq&index=2" target="_blank" rel="noopener">컴포넌트 기본</a></li>
+</ul>
+<p>[[TOC]]</p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><p>웹스퀘어에서 CSS를 적용하는 방법은 세 가지가 있다.</p>
+<ol>
+<li>in-line style</li>
+<li>Internal Style</li>
+<li>External Style</li>
+</ol>
+<p>이 중 인라인 스타일이 가장 우선순위가 높다.<br>좀 더 알아보고 싶다면 <a href="https://www.zerocho.com/category/CSS/post/588cb95ca63e64132496a5d5" target="_blank" rel="noopener">제로초님 게시글</a>을 참조하면 좋다.</p>
+<h2 id="데이터-출력"><a href="#데이터-출력" class="headerlink" title="데이터 출력"></a>데이터 출력</h2><p>데이터를 화면에 보여주는 방법은 두 가지가 있다.</p>
+<ol>
+<li>바인딩<ul>
+<li>인스턴스를 각 컴포넌트에 끌어서 연동 (ref 값 이용)</li>
+<li>source에서 xf:instance 영역에 데이터를 넣어주어야 함</li>
+</ul>
+</li>
+<li>API</li>
+</ol>
+<h2 id="컴포넌트"><a href="#컴포넌트" class="headerlink" title="컴포넌트"></a>컴포넌트</h2><ul>
+<li><strong>InputBox (xf:Input)</strong><ul>
+<li>데이터 유효성 검증이 가능하다는 장점</li>
+<li>속성<ul>
+<li>displayFormat : #,###</li>
+<li>maxlength : 5</li>
+<li>readOnly : true</li>
+</ul>
+</li>
+<li>API<ul>
+<li>setValue( value ), getValue()</li>
+<li>setDisplayFormat( format )</li>
+<li>setDisabled ( disabled ) : 컴포넌트 활성화, 비활성화</li>
+<li>setReadOnly ( readOnly )</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Output (xf:output)</strong><ul>
+<li>속성<ul>
+<li>displayFormat : #,###</li>
+<li>ref (데이터 바인딩 정의)</li>
+</ul>
+</li>
+<li>API<ul>
+<li>setValue (value)</li>
+<li>setBackgroundImage ( url )</li>
+<li>setReadOnly ( readOnly )</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Trigger (xf:trigger)</strong><ul>
+<li>기존 HTML에서의 button tag와 같은 역할</li>
+<li>속성<ul>
+<li>centerOffImageClass</li>
+</ul>
+</li>
+<li>API<ul>
+<li>setValue( value ), getValue()</li>
+<li>setDisabled ( disabled ) : 컴포넌트 활성화, 비활성화</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Textbox (w2:textbox)</strong><ul>
+<li>기본적으로 label을 표시하는 컴포넌트</li>
+<li>속성<ul>
+<li>ref</li>
+<li>tagname : div (기본은 div이지만 변경 가능)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>TextArea (xf:textarea)</strong><ul>
+<li>여러 줄의 텍스트를 입력할 경우에 사용</li>
+<li>속성<ul>
+<li>maxlength : 5</li>
+<li>readOnly : true</li>
+<li>ref</li>
+</ul>
+</li>
+<li>API<ul>
+<li>setValue( value ), getValue()</li>
+<li>setPosition( left, top, mode )</li>
+<li>setSize( width, height )</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Group (xf:group)</strong><ul>
+<li>속성<ul>
+<li>tagname</li>
+</ul>
+</li>
+<li>API<ul>
+<li>init( options ) : 그룹 내 컴포넌트를 모두 초기화</li>
+<li>invoke( funcName, param, options ) : 그룹 내 컴포넌트의 함수를 동일하게 호출</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>SelectBox (xf:select1)</strong><ul>
+<li>옵션을 설정하는 두가지 방법이 있다<ol>
+<li>AddRow로 일일이 데이터를 넣는 방법</li>
+<li>ItemSet으로 동적으로 데이터를 넣는 방법</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>MultiSelect (xf:select)</strong><ul>
+<li><em>SelectBox</em> 와 동일하지만 여러 항목을 선택할 수 있음<ul>
+<li>Ctrl 키를 누르고 선택해야함</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Radio (xf:select1)</strong><ul>
+<li>HTML에서 type의 radio input과 같은 역할</li>
+<li>옵션을 설정하는 방법은 SelectBox 와 동일</li>
+<li>속성<ul>
+<li>cols, rows</li>
+</ul>
+</li>
+<li>API<ul>
+<li>setValue( value ), getValue()</li>
+<li>getText() : 선택된 항목의 label을 반환</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Checkbox (xf:select)</strong><ul>
+<li>옵션을 설정하는 방법은 SelectBox 와 동일</li>
+<li>속성<ul>
+<li>cols, rows</li>
+</ul>
+</li>
+<li>API<ul>
+<li>checkAll( value )</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>**Calender (w2:calender)<ul>
+<li>속성<ul>
+<li>calenderClass (달력의 스킨 선택)</li>
+<li>calenderValueType (표시 형태 선택)</li>
+<li>monthNames (월을 표시하는 방법을 선택)</li>
+</ul>
+</li>
+<li>이벤트<ul>
+<li>ondateselect( dateStr, dateObj ) : 일자를 선택했을 때 발생하는 이벤트. 데이트를 두가지 형태로 받아온다.</li>
+</ul>
+</li>
+<li>API<ul>
+<li>gotoCalender( dateStr ) : 특정 일자로 이동</li>
+<li>setDateFormat( format ) : 데이트 포맷 지정</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>InputCalender (w2:inputCalender)</strong><ul>
+<li>날짜를 입력할 수 있는 컴포넌트</li>
+<li>속성<ul>
+<li>ref</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>DatePicker (w2:datePicker)</strong><ul>
+<li>모바일에서 주로 사용하는 달력 선택</li>
+</ul>
+</li>
+</ul>
 
         </div>
         
