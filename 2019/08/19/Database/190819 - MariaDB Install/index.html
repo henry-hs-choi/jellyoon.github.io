@@ -2,21 +2,23 @@
 <html lang="ko">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>아카이브: 2019 - HS CHOI</title>
+<title>Maria DB Install (Ubuntu 18.04) - HS CHOI</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Develop">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HS CHOI">
-<meta property="og:url" content="http://einhugo.github.io/archives/2019/page/2/index.html">
+    <meta name="description" content="공식사이트  Maria DB를 인스톨하기 위해 apt-get 레포지토리를 추가 (아래는 ubuntu bionic OS 기준) sudo apt-get install software-properties-common sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C">
+<meta name="keywords" content="MariaDB,Install">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maria DB Install (Ubuntu 18.04)">
+<meta property="og:url" content="http://einhugo.github.io/2019/08/19/Database/190819 - MariaDB Install/index.html">
 <meta property="og:site_name" content="HS CHOI">
-<meta property="og:description" content="Develop">
+<meta property="og:description" content="공식사이트  Maria DB를 인스톨하기 위해 apt-get 레포지토리를 추가 (아래는 ubuntu bionic OS 기준) sudo apt-get install software-properties-common sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C">
 <meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-08-19T08:34:32.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HS CHOI">
-<meta name="twitter:description" content="Develop">
+<meta name="twitter:title" content="Maria DB Install (Ubuntu 18.04)">
+<meta name="twitter:description" content="공식사이트  Maria DB를 인스톨하기 위해 apt-get 레포지토리를 추가 (아래는 ubuntu bionic OS 기준) sudo apt-get install software-properties-common sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C">
 
 
 
@@ -88,7 +90,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="HS CHOI" height="28">
+                <img src="/images/logo.svg" alt="Maria DB Install (Ubuntu 18.04)" height="28">
             
             </a>
         </div>
@@ -133,231 +135,121 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-19T09:11:00.000Z">2019-08-19</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Database/">Database</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1분 read (About 162 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Maria DB Install (Ubuntu 18.04)
+            
+        </h1>
+        <div class="content">
+            <p><a href="https://downloads.mariadb.org/mariadb/repositories/#distro=Ubuntu&distro_release=bionic--ubuntu_bionic&mirror=ulakbim&version=10.4" target="_blank" rel="noopener">공식사이트</a></p>
+<ol>
+<li><p>Maria DB를 인스톨하기 위해 apt-get 레포지토리를 추가 (아래는 ubuntu bionic OS 기준)</p>
+<pre><code>sudo apt-get install software-properties-common
+sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
+sudo add-apt-repository &apos;deb [arch=amd64,arm64,ppc64el] ftp://ftp.ulak.net.tr/pub/MariaDB/repo/10.4/ubuntu bionic main&apos;</code></pre></li>
+<li><p>Maria DB 설치</p>
+<pre><code>sudo apt-get install mariadb-server</code></pre></li>
+<li><p>설치 확인</p>
+<pre><code>mysql -V</code></pre><p> 결과는 아래와 같다</p>
+<pre><code>mysql  Ver 15.1 Distrib 10.4.7-MariaDB, for debian-linux-gnu (x86_64) using readline 5.2</code></pre></li>
+<li><p>실행 방법</p>
+<pre><code>sudo mysql
+show databases;</code></pre></li>
+</ol>
+<p><code>최초 mariaDB의 루트 비밀번호는 시스템의 루트 비밀번호와 동일하다</code></p>
 
-<div class="card widget">
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Install/">Install</a>, <a class="has-link-grey -link" href="/tags/MariaDB/">MariaDB</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        2019
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-30T00:05:00.000Z">2019-07-30</time>
-                        <a href="/2019/07/30/Web/190730 - Session/" class="has-link-black-ter is-size-6">작성중) Session / Session Clustering</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Programming/">Programming</a> / <a class="has-link-grey -link" href="/categories/Programming/Web/">Web</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-29T04:05:00.000Z">2019-07-29</time>
-                        <a href="/2019/07/29/Web/190729 - Frontend Levels/" class="has-link-black-ter is-size-6">Frontend Levels</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Programming/">Programming</a> / <a class="has-link-grey -link" href="/categories/Programming/Web/">Web</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-27T15:08:46.000Z">2019-07-28</time>
-                        <a href="/2019/07/28/Books/190728 - The Art of Readable Code/" class="has-link-black-ter is-size-6">(읽는 중) The Art of Readable Code - 읽기 좋은 코드가 좋은 코드다 (2011, Dustin Boswell / Trevor Foucher)</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Books/">Books</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-27T15:08:46.000Z">2019-07-28</time>
-                        <a href="/2019/07/28/Books/190728 - Clean Code/" class="has-link-black-ter is-size-6">(읽는 중) Clean Code - 클린코드 (2008, Robert C. Martin)</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Books/">Books</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-25T09:41:46.000Z">2019-07-25</time>
-                        <a href="/2019/07/25/Books/190725 - Git for Humans/" class="has-link-black-ter is-size-6">(읽는 중) Git for Humans - 인간다운 Git (2016, David Demaree)</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Books/">Books</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-23T02:06:46.000Z">2019-07-23</time>
-                        <a href="/2019/07/23/Cloud/190723 - Cloud - Architecture/" class="has-link-black-ter is-size-6">Cloud - Architecture</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Cloud/">Cloud</a> / <a class="has-link-grey -link" href="/categories/Cloud/AWS/">AWS</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-22T08:06:46.000Z">2019-07-22</time>
-                        <a href="/2019/07/22/Cloud/190801 - Cloud - Kubernetes Solutions/" class="has-link-black-ter is-size-6">(강의 듣는중) Cloud - Kubernetes Solutions</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Cloud/">Cloud</a> / <a class="has-link-grey -link" href="/categories/Cloud/GCP/">GCP</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-22T08:06:46.000Z">2019-07-22</time>
-                        <a href="/2019/07/22/Cloud/190722 - Cloud - Basic/" class="has-link-black-ter is-size-6">Cloud - Basic</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Cloud/">Cloud</a> / <a class="has-link-grey -link" href="/categories/Cloud/AWS/">AWS</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-15T23:36:46.000Z">2019-07-16</time>
-                        <a href="/2019/07/16/Database/190716 - Oracle - DDL/" class="has-link-black-ter is-size-6">Oracle - DDL</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Database/">Database</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-15T23:36:46.000Z">2019-07-16</time>
-                        <a href="/2019/07/16/Database/190716 - Oracle - SELECT/" class="has-link-black-ter is-size-6">Oracle - SELECT</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Database/">Database</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
         </div>
     </div>
 </div>
 
 
 
-    
 <div class="card card-transparent">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/2019/">이전</a>
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/18/Web/190818 - Tomcat Install/">
+                <span class="level-item">Tomcat 8.5 Install (Ubuntu 18.04)</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/2019/page/3/">다음</a>
-        </div>
-        <ul class="pagination-list is-hidden-mobile">
-            
-            <li><a class="pagination-link has-text-black-ter" href="/archives/2019/">1</a></li>
-            
-            <li><a class="pagination-link is-current" href="/archives/2019/page/2/">2</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/archives/2019/page/3/">3</a></li>
-            
-        </ul>
-    </nav>
+        
+    </div>
 </div>
+
+
 </div>
                 
 
@@ -1263,7 +1155,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="HS CHOI" height="28">
+                    <img src="/images/logo.svg" alt="Maria DB Install (Ubuntu 18.04)" height="28">
                 
                 </a>
                 <p class="is-size-7">
